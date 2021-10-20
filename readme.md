@@ -19,3 +19,7 @@ doAssert genClass({
   "hidden": false
 }) == "btn btn-info"
 ```
+
+## License
+
+MIT
