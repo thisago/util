@@ -1,6 +1,6 @@
 ## `util`s `forhtml`
 
-proc genclass*(classes: openArray[(string, bool)]): string =
+func genclass*(classes: openArray[(string, bool)]): string =
   ## Generate html classname by a array of `(string, bool)`
   runnableExamples:
     doAssert genClass({

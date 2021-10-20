@@ -4,9 +4,9 @@ Random utilities to all cases.
 
 More will be added soon.
 
-## forhtml
+## `forhtml` module
 
-### `genclass`
+### `func genclass(classes: openArray[(string, bool)]): string`
 
 Generate html classname by a array of `(string, bool)`
 
