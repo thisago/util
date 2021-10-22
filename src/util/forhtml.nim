@@ -11,5 +11,5 @@ func genclass*(classes: openArray[(string, bool)]): string =
   for i, (class, active) in classes:
     if active:
       result.add class
-    if i + 1 < classes.len - 1:
-      result.add " "
+      if i + 1 < classes.len - 1:
+        result.add " "
