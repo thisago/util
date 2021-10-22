@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.1.3 (10/22/2021)
+
+- Changed the way of join data `forhtml.genclass`
+
+---
+
 ## Version 0.1.2 (10/22/2021)
 
 - Fixed adding spaces for disabled class in `forhtml.genclass`

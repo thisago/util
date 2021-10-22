@@ -1,4 +1,5 @@
 ## `util`s `forhtml`
+from std/strutils import join
 
 func genclass*(classes: openArray[(string, bool)]): string =
   ## Generate html classname by a array of `(string, bool)`
@@ -8,8 +9,8 @@ func genclass*(classes: openArray[(string, bool)]): string =
       "btn-info": true,
       "hidden": false
     }) == "btn btn-info"
+  var activeClasses: seq[string]
   for i, (class, active) in classes:
     if active:
-      result.add class
-      if i + 1 < classes.len - 1:
-        result.add " "
+      activeClasses.add class
+  result = activeClasses.join " "
