@@ -1,8 +1,8 @@
-## `util`s `forhtml`
+## Utilities `forHtml`
 from std/strutils import join
 
-func genclass*(classes: openArray[(string, bool)]): string =
-  ## Generate html classname by a array of `(string, bool)`
+func genClass*(classes: openArray[(string, bool)]): string =
+  ## Returns as string just the classes that are on
   runnableExamples:
     doAssert genClass({
       "btn",

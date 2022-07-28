@@ -1,5 +1,13 @@
 # Changelog
 
+## Version 0.2.0 (Jul 28 2022)
+
+- Fixed doc gen
+- Fixed `forHtml.genClass` name and doc
+- Added `forStr.between`
+
+---
+
 ## Version 0.1.3 (10/22/2021)
 
 - Changed the way of join data `forhtml.genclass`

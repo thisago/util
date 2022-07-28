@@ -1,8 +1,8 @@
 import std/unittest
-import util/forhtml
+import util/forHtml
 
 suite "For HTML":
-  test "genclass":
+  test "genClass":
     check genClass({
       "btn": true,
       "hidden": false,

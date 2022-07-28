@@ -1,8 +1,8 @@
 # Package
 
-version       = "0.1.3"
-author        = "Thiago Ferreira"
-description   = "Random utilities to all cases"
+version       = "0.2.0"
+author        = "Thiago Navarro"
+description   = "Small utilities that isn't large enough to have a individual modules"
 license       = "MIT"
 srcDir        = "src"
 
@@ -10,5 +10,5 @@ srcDir        = "src"
 
 requires "nim >= 1.0.0"
 
-task gen_docs, "Generates the documentation":
-  exec "nim doc --project --out:docs src/util.nim"
+task genDocs, "Generate documentation":
+  exec "rm -r docs && nim doc -d:usestd --git.commit:master --git.url:https://github.com/thisago/util --project -d:ssl --out:docs ./src/restSpa.nim"
