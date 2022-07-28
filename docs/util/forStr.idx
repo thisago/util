@@ -1,0 +1,1 @@
+between	util/forStr.html#between,string,string,string,string	forStr: between(text, start, finish: string; default = &quot;&quot;; catchAll = false): string	

@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.2.1 (Jul 28 2022)
+
+- Allowed the import of all modules at once
+
+---
+
 ## Version 0.2.0 (Jul 28 2022)
 
 - Fixed doc gen

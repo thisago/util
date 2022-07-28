@@ -1,3 +1,7 @@
-## Please do not import this module. Use submodules
+import util/[
+  forHtml,
+  forStr
+]
 
-{.fatal: "Please do not import all `util`s".}
+export forHtml
+export forStr
