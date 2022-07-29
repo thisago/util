@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.3.0 (Jul 29 2022)
+
+- Added `forTerm.echoSingleLine` to print the text in same line
+
+---
+
 ## Version 0.2.1 (Jul 28 2022)
 
 - Allowed the import of all modules at once

@@ -35,6 +35,12 @@ doAssert "The dog is lazy".between("dog", "lazy") == " is "
 doAssert "The dog is lazy".between("dog", "lazy", catchAll = true) == "dog is lazy"
 ```
 
+## _forTerm_ module
+
+### `proc echoSingleLine*(xs: varargs[string, `$`])`
+
+Prints in stdout the text replacing the current line, useful to show progress
+
 ## License
 
 MIT
