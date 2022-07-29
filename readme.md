@@ -22,7 +22,7 @@ doAssert genClass({
 
 ## _forStr_ module
 
-### `func between*(text, start, finish: string; default = ""; catchAll = false): string`
+### `func between(text, start, finish: string; default = ""; catchAll = false): string`
 
 Get the text between two strings
 
@@ -37,9 +37,21 @@ doAssert "The dog is lazy".between("dog", "lazy", catchAll = true) == "dog is la
 
 ## _forTerm_ module
 
-### `proc echoSingleLine*(xs: varargs[string, `$`])`
+### `proc echoSingleLine(xs: varargs[string, `$`])`
 
 Prints in stdout the text replacing the current line, useful to show progress
+
+## _forFs_ module
+
+### `func escapeFs(str: string; toReplace = '-'): string`
+
+Escapes the invalid chars in FS
+
+**Example**
+
+```nim
+doAssert "10/2: ?".escapeFs == "10-2- -"
+```
 
 ## License
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.4.0 (Jul 29 2022)
+
+- Added `forFs.escapeFs` to escape invalid chars from file names
+
+---
+
 ## Version 0.3.0 (Jul 29 2022)
 
 - Added `forTerm.echoSingleLine` to print the text in same line
