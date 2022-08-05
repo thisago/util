@@ -11,10 +11,10 @@ proc occurrences*[T](xs: openArray[T]): Table[T, int] =
     doAssert occurrences(["a", "a", "b", "c", "c"]) == {"a": 2, "b": 1, "c": 2}.toTable
   for x in xs:
     result[x] =
-      if not result.hasKey x:
-        1
-      else:
+      if result.hasKey x:
         result[x] + 1
+      else:
+        1
 
 proc occurrence*[T](xs: openArray[T], val: T): int =
   ## Get the occurrence of specific value in array
