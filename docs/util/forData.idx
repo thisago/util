@@ -1,3 +1,4 @@
 occurrences	util/forData.html#occurrences,openArray[T]	forData: occurrences[T](xs: openArray[T]): Table[T, int]	
 occurrence	util/forData.html#occurrence,openArray[T],T	forData: occurrence[T](xs: openArray[T]; val: T): int	
 mostCommon	util/forData.html#mostCommon,openArray[T]	forData: mostCommon[T](xs: openArray[T]): seq[T]	
+randStr	util/forData.html#randStr,int	forData: randStr(len: int; chars = Digits + Letters): string	
