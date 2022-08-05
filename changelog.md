@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.6.0 (Aug 5 2022)
+
+- Added `forRand.randStr`
+
+---
+
 ## Version 0.5.0 (Aug 5 2022)
 
 - Added `forData.occurrences`, `forData.occurrence` and `forData.mostCommon`

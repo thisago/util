@@ -90,6 +90,20 @@ doAssert mostCommon(["a", "b", "c", "c"]) == ["c"]
 doAssert mostCommon(["a", "a", "b", "c", "c"]) == ["a", "c"]
 ```
 
+## _forRand_ module
+
+### `proc randStr*(len: int; chars = Digits + Letters): string`
+Generate a random string using given chars
+
+Need call `randomize` before
+
+**Example**
+```nim
+from std/random import randomize
+randomize()
+doAssert randStr(10).len == 10
+```
+
 ---
 
 ## License
