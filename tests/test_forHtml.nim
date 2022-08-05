@@ -1,4 +1,5 @@
 import std/unittest
+
 import util/forHtml
 
 suite "For HTML":

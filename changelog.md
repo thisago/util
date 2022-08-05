@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.5.0 (Aug 5 2022)
+
+- Added `forData.occurrences`, `forData.occurrence` and `forData.mostCommon`
+
+---
+
 ## Version 0.4.0 (Jul 29 2022)
 
 - Added `forFs.escapeFs` to escape invalid chars from file names

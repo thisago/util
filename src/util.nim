@@ -1,7 +1,7 @@
 import util/[
   forHtml,
-  forStr
+  forStr,
+  forData
 ]
 
-export forHtml
-export forStr
+export forHtml, forStr, forData

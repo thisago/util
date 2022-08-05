@@ -53,6 +53,45 @@ Escapes the invalid chars in FS
 doAssert "10/2: ?".escapeFs == "10-2- -"
 ```
 
+## _forData_ module
+
+### `proc occurrences*[T](xs: openArray[T]): Table[T, int]`
+Get all occurrences of values in array
+
+**Example**
+```nim
+from std/tables import toTable
+doAssert occurrences(["a", "b", "c", "a"]) == {"a": 2, "b": 1, "c": 1}.toTable
+doAssert occurrences(["a", "b", "c", "c"]) == {"a": 1, "b": 1, "c": 2}.toTable
+doAssert occurrences(["a", "a", "b", "c", "c"]) == {"a": 1, "b": 1, "c": 2}.toTable
+```
+
+
+### `proc occurrence*[T](xs: openArray[T], val: T): int`
+Get the occurrence of specific value in array
+
+**Example**
+```nim
+from std/tables import toTable
+doAssert(["a", "b", "c", "a"].occurrence("b") == 1)
+doAssert(["a", "b", "c", "c"].occurrence("e") == 0)
+doAssert(["a", "a", "b", "c", "c"].occurrence("c") == 2)
+```
+
+
+### `proc mostCommon*[T](xs: openArray[T]): seq[T]`
+Get the most common values at array
+
+**Example**
+```nim
+from std/tables import toTable
+doAssert mostCommon(["a", "b", "c", "a"]) == ["a"]
+doAssert mostCommon(["a", "b", "c", "c"]) == ["c"]
+doAssert mostCommon(["a", "a", "b", "c", "c"]) == ["a", "c"]
+```
+
+---
+
 ## License
 
 MIT
