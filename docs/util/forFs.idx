@@ -1,0 +1,2 @@
+InvalidChars	util/forFs.html#InvalidChars	forFs: InvalidChars	
+escapeFs	util/forFs.html#escapeFs,string,char	forFs: escapeFs(str: string; toReplace = &apos;-&apos;): string	

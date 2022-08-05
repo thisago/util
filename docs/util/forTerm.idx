@@ -1,0 +1,1 @@
+echoSingleLine	util/forTerm.html#echoSingleLine,varargs[string,]	forTerm: echoSingleLine(xs: varargs[string, `$`])	
