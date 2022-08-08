@@ -5,7 +5,6 @@ import util/forRand
 
 randomize()
 
-
 suite "For rand":
   test "randStr":
     check randStr(10).len == 10

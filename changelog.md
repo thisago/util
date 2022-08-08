@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.7.0 (Aug 8 2022)
+
+- Added `forStr.parseStr`
+
+---
+
 ## Version 0.6.0 (Aug 5 2022)
 
 - Added `forRand.randStr`
