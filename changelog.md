@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.7.2 (Aug 8 2022)
+
+- Fixed `forStr.parseStr` parser index not incrementing because there was a `continue`
+
+---
+
 ## Version 0.7.1 (Aug 8 2022)
 
 - Removed duplicated `randStr`

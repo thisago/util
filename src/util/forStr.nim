@@ -94,8 +94,7 @@ proc parseStr*(text: string; parsers: varargs[VarParser]): string =
       temp.add ch
 
     # Eval vars
-    var p = 0
-    for parser in parsers:
+    for p, parser in parsers:
       if not parser.same:
         if curr.index == p:
           # Stop not same enclosed var and
@@ -116,17 +115,17 @@ proc parseStr*(text: string; parsers: varargs[VarParser]): string =
           # If some char was added before, remove it
           if temp.len > 0:
             temp.setLen temp.len - 1
-          # If not started, start (start name getting)
           if curr.index != p:
+            # If not started, start (start name getting)
             curr = (p, "")
-          # If started, parse the var (end of the name getting)
           else:
+            # If started, parse the var (end of the name getting)
             curr = (-1, parser.fn curr.text)
           continue
         # Add same enclosed var name
         if curr.index == p:
           curr.text.add ch
-      inc p
+
     # Add resolved var to parts
     if curr.index == -1 and curr.text != "":
       parts.add curr.text

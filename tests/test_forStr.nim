@@ -27,8 +27,8 @@ suite "For string":
         "where": "fridge"
       }.toTable
       parsers = [
+        initVarParser("**", (k: string) => food[k], true),
         initVarParser("{}", (k: string) => me[k]),
-        initVarParser("()", (k: string) => friend[k]),
-        initVarParser("**", (k: string) => food[k], true)
+        initVarParser("()", (k: string) => friend[k])
       ]
     check text.parseStr(parsers) == "My name is John and I am 42 years old; My friend Fred is 23 years old.\lMy favorite food is called cake, and I've had it in my fridge for 2 days now"
