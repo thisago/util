@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.7.1 (Aug 8 2022)
+
+- Removed duplicated `randStr`
+
+---
+
 ## Version 0.7.0 (Aug 8 2022)
 
 - Added `forStr.parseStr`

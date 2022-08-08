@@ -1,0 +1,1 @@
+randStr	util/forRand.html#randStr,int	forRand: randStr(len: int; chars = Digits + Letters): string	

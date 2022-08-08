@@ -148,7 +148,7 @@ doAssert mostCommon(["a", "a", "b", "c", "c"]) == ["a", "c"]
 
 ### `proc randStr*(len: int; chars = Digits + Letters): string`
 
-<a href="https://thisago.github.io/util/util/forData.html#randStr%2Cint"><small>Source</small></a>
+<a href="https://thisago.github.io/util/util/forRand.html#randStr%2Cint"><small>Source</small></a>
 
 Generate a random string using given chars
 
