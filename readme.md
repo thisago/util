@@ -5,6 +5,7 @@ Small utilities that isn't large enough to have a individual modules
 ## _forHtml_ module
 
 ### `func genclass(classes: openArray[(string, bool)]): string`
+<a href="https://thisago.github.io/util/util/forHtml.html#genClass%2CopenArray%5B%5D"><small>Source</small></a>
 
 Returns as string just the classes that are on
 
@@ -22,7 +23,8 @@ doAssert genClass({
 
 ## _forStr_ module
 
-### `func between(text, start, finish: string; default = ""; catchAll = false): string`
+### `func between(text, start, finish: string; default = ""; catchAll = false): string` 
+<a href="https://thisago.github.io/util/util/forStr.html#between%2Cstring%2Cstring%2Cstring%2Cstring)"><small>Source</small></a>
 
 Get the text between two strings
 
@@ -37,6 +39,7 @@ doAssert "The dog is lazy".between("dog", "lazy", catchAll = true) == "dog is la
 
 
 ### `proc parseStr*(text: string; parsers: varargs[VarParser]): string`
+<a href="https://thisago.github.io/util/util/forStr.html#parseStr%2Cstring%2Cvarargs%5BVarParser%5D"><small>Source</small></a>
 
 Parse variables using custom config
 
@@ -72,12 +75,14 @@ echo text.parseStr parsers
 ## _forTerm_ module
 
 ### `proc echoSingleLine(xs: varargs[string, `$`])`
+<a href="https://thisago.github.io/util/util/forTerm.html#echoSingleLine%2Cvarargs%5Bstring%2C%5D"><small>Source</small></a>
 
 Prints in stdout the text replacing the current line, useful to show progress
 
 ## _forFs_ module
 
 ### `func escapeFs(str: string; toReplace = '-'): string`
+<a href="https://thisago.github.io/util/util/forFs.html#escapeFs%2Cstring%2Cchar"><small>Source</small></a>
 
 Escapes the invalid chars in FS
 
@@ -90,6 +95,8 @@ doAssert "10/2: ?".escapeFs == "10-2- -"
 ## _forData_ module
 
 ### `proc occurrences*[T](xs: openArray[T]): Table[T, int]`
+<a href="https://thisago.github.io/util/util/forData.html#occurrences%2CopenArray%5BT%5D"><small>Source</small></a>
+
 Get all occurrences of values in array
 
 **Example**
@@ -101,6 +108,8 @@ doAssert occurrences(["a", "a", "b", "c", "c"]) == {"a": 1, "b": 1, "c": 2}.toTa
 ```
 
 ### `proc occurrence*[T](xs: openArray[T], val: T): int`
+<a href="https://thisago.github.io/util/util/forData.html#occurrence%2CopenArray%5BT%5D%2CT"><small>Source</small></a>
+
 Get the occurrence of specific value in array
 
 **Example**
@@ -112,6 +121,8 @@ doAssert(["a", "a", "b", "c", "c"].occurrence("c") == 2)
 ```
 
 ### `proc mostCommon*[T](xs: openArray[T]): seq[T]`
+<a href="https://thisago.github.io/util/util/forData.html#mostCommon%2CopenArray%5BT%5D"><small>Source</small></a>
+
 Get the most common values at array
 
 **Example**
@@ -125,6 +136,8 @@ doAssert mostCommon(["a", "a", "b", "c", "c"]) == ["a", "c"]
 ## _forRand_ module
 
 ### `proc randStr*(len: int; chars = Digits + Letters): string`
+<a href="https://thisago.github.io/util/util/forData.html#randStr%2Cint"><small>Source</small></a>
+
 Generate a random string using given chars
 
 Need call `randomize` before
