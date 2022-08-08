@@ -11,7 +11,8 @@ suite "For string":
     
   test "parseStr":
     let
-      text = "My name is {name} and I am {age} old; My friend (name) is (age) old.\lMy favorite food is called **name**, and I've had it in my **where** for **age** now"
+      text = "My name is {name} and I am {age} old; My friend (name) is (age) old.\l" &
+        "My favorite food is called **name**, and I've had it in my **where** for **age** now"
       me = {
         "name": "John",
         "age": "42 years"
