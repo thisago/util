@@ -9,6 +9,9 @@ suite "For string":
     check "The dog is lazy".between("dog", "lazy") == " is "
     check "The dog is lazy".between("dog", "lazy", catchAll = true) == "dog is lazy"
     
+  test "stopAt":
+    check "Hello World! My name is John".stopAt('!') == "Hello World"
+    
   test "parseStr":
     let
       text = "My name is {name} and I am {age} old; My friend (name) is (age) old.\l" &

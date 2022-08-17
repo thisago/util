@@ -26,6 +26,18 @@ func between*(text, start, finish: string; default = ""; catchAll = false): stri
       except ValueError:
         discard
 
+func stopAt*(s, stop: string or char): string =
+  ## Removes all text after `stop` (and the `stop` text too)
+  runnableExamples:
+    doAssert "Hello World! My name is John".
+                stopAt('!') == "Hello World"
+  result = s
+  let stop = s.find stop
+  if stop >= 0:
+    result = s[0..<stop]
+
+
+#region var parser (maybe move to another lib)
 
 type
   VarParser* = object
@@ -138,3 +150,5 @@ proc parseStr*(text: string; parsers: varargs[VarParser]): string =
         temp = "" 
   # Join parts
   result = parts.join ""
+
+#endregion

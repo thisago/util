@@ -1,4 +1,5 @@
 between	util/forStr.html#between,string,string,string,string	forStr: between(text, start, finish: string; default = &quot;&quot;; catchAll = false): string	
+stopAt	util/forStr.html#stopAt,,	forStr: stopAt(s, stop: string or char): string	
 VarParser	util/forStr.html#VarParser	forStr: VarParser	
 initVarParser	util/forStr.html#initVarParser,,	forStr: initVarParser(enclosing: VarParser.enclosing; fn: VarParser.fn;\n              sameEnclosing = false): VarParser	
 parseStr	util/forStr.html#parseStr,string,varargs[VarParser]	forStr: parseStr(text: string; parsers: varargs[VarParser]): string	

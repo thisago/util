@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.8.0 (Aug 8 2022)
+
+- Added `forStr.stopAt` to get all text before some identifier
+
+---
+
 ## Version 0.7.2 (Aug 8 2022)
 
 - Fixed `forStr.parseStr` parser index not incrementing because there was a `continue`

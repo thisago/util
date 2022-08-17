@@ -26,7 +26,7 @@ doAssert genClass({
 
 ### `func between(text, start, finish: string; default = ""; catchAll = false): string`
 
-<a href="https://thisago.github.io/util/util/forStr.html#between%2Cstring%2Cstring%2Cstring%2Cstring)"><small>Source</small></a>
+<a href="https://thisago.github.io/util/util/forStr.html#between%2Cstring%2Cstring%2Cstring%2Cstring"><small>Source</small></a>
 
 Get the text between two strings
 
@@ -37,6 +37,18 @@ If `justMiddle` is true, just the middle text will be returned, the searched tex
 ```nim
 doAssert "The dog is lazy".between("dog", "lazy") == " is "
 doAssert "The dog is lazy".between("dog", "lazy", catchAll = true) == "dog is lazy"
+```
+
+### `func stopAt*(s, stop: string or char): string`
+
+<!-- <a href="https://thisago.github.io/util/util/forStr.html#stopAt,string,string,string,string"><small>Source</small></a> -->
+
+Removes all text after `stop` (and the `stop` text too)
+
+**Example**
+
+```nim
+doAssert "Hello World! My name is John".stopAt('!') == "Hello World"
 ```
 
 ### `proc parseStr*(text: string; parsers: varargs[VarParser]): string`
