@@ -41,7 +41,7 @@ doAssert "The dog is lazy".between("dog", "lazy", catchAll = true) == "dog is la
 
 ### `func stopAt*(s, stop: string or char): string`
 
-<!-- <a href="https://thisago.github.io/util/util/forStr.html#stopAt,string,string,string,string"><small>Source</small></a> -->
+<a href="https://thisago.github.io/util/util/forStr.html#stopAt%2C%2C"><small>Source</small></a>
 
 Removes all text after `stop` (and the `stop` text too)
 
