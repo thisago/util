@@ -109,11 +109,11 @@ Escapes the invalid chars in FS
 doAssert "10/2: ?".escapeFs == "10-2- -"
 ```
 
-## _forData_ module
+## _forSeq_ module
 
 ### `proc occurrences*[T](xs: openArray[T]): Table[T, int]`
 
-<a href="https://thisago.github.io/util/util/forData.html#occurrences%2CopenArray%5BT%5D"><small>Source</small></a>
+<a href="https://thisago.github.io/util/util/forSeq.html#occurrences%2CopenArray%5BT%5D"><small>Source</small></a>
 
 Get all occurrences of values in array
 
@@ -128,7 +128,7 @@ doAssert occurrences(["a", "a", "b", "c", "c"]) == {"a": 1, "b": 1, "c": 2}.toTa
 
 ### `proc occurrence*[T](xs: openArray[T], val: T): int`
 
-<a href="https://thisago.github.io/util/util/forData.html#occurrence%2CopenArray%5BT%5D%2CT"><small>Source</small></a>
+<a href="https://thisago.github.io/util/util/forSeq.html#occurrence%2CopenArray%5BT%5D%2CT"><small>Source</small></a>
 
 Get the occurrence of specific value in array
 
@@ -143,7 +143,7 @@ doAssert(["a", "a", "b", "c", "c"].occurrence("c") == 2)
 
 ### `proc mostCommon*[T](xs: openArray[T]): seq[T]`
 
-<a href="https://thisago.github.io/util/util/forData.html#mostCommon%2CopenArray%5BT%5D"><small>Source</small></a>
+<a href="https://thisago.github.io/util/util/forSeq.html#mostCommon%2CopenArray%5BT%5D"><small>Source</small></a>
 
 Get the most common values at array
 

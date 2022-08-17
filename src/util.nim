@@ -3,8 +3,8 @@ import util/[
   forStr,
   forTerm,
   forFs,
-  forData,
+  forSeq,
   forRand
 ]
 
-export forHtml, forStr, forTerm, forFs, forData, forRand
+export forHtml, forStr, forTerm, forFs, forSeq, forRand

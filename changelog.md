@@ -1,6 +1,12 @@
 # Changelog
 
-## Version 0.8.0 (Aug 8 2022)
+## Version 1.0.0 (Aug 17 2022)
+
+- [BREAKING CHANGE] Renamed submodule `forData` to `forSeq`
+
+---
+
+## Version 0.8.0 (Aug 17 2022)
 
 - Added `forStr.stopAt` to get all text before some identifier
 
@@ -32,7 +38,7 @@
 
 ## Version 0.5.0 (Aug 5 2022)
 
-- Added `forData.occurrences`, `forData.occurrence` and `forData.mostCommon`
+- Added `forSeq.occurrences`, `forSeq.occurrence` and `forSeq.mostCommon`
 
 ---
 

@@ -1,9 +1,9 @@
 import std/unittest
 import std/tables
 
-import util/forData
+import util/forSeq
 
-suite "For data":
+suite "For seq":
   test "occurrences":
     check occurrences(["a", "b", "c", "a"]) == {"a": 2, "b": 1, "c": 1}.toTable
     check occurrences(["a", "b", "c", "c"]) == {"a": 1, "b": 1, "c": 2}.toTable

@@ -1,5 +1,4 @@
-## Utilities `forData` manipulation and analysis
-# from std/tables import Table, `[]`, `[]=`, hasKey, pairs
+## Utilities `forSeq` manipulation and analysis
 import std/tables
 
 proc occurrences*[T](xs: openArray[T]): Table[T, int] =
