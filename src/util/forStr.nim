@@ -152,3 +152,64 @@ proc parseStr*(text: string; parsers: varargs[VarParser]): string =
   result = parts.join ""
 
 #endregion
+
+
+# Source: https://github.com/planety/prologue/blob/devel/src/prologue/core/types.nim#L56
+
+from std/strutils import parseInt, parseFloat, parseBool
+
+type BaseType* = int | float | bool | string
+
+func tryParseInt*(value: string; default = -1): int {.inline.} =
+  ## Tries to parse int from string
+  runnableExamples:
+    doAssert tryParseInt("10") == 10
+    doAssert tryParseInt("test") == -1
+    doAssert tryParseInt("test", 12) == 12
+  try:
+    result = parseInt(value)
+  except ValueError:
+    result = default
+
+func tryParseFloat*(value: string; default = -1.0): float {.inline.} =
+  ## Tries to parse float from string
+  runnableExamples:
+    doAssert tryParseFloat("10") == 10.0
+    doAssert tryParseFloat("1.823") == 1.823
+    doAssert tryParseFloat("test") == -1.0
+    doAssert tryParseFloat("test", 12) == 12.0
+  try:
+    result = parseFloat(value)
+  except ValueError:
+    result = default
+
+func tryParseBool*(value: string; default = false): bool {.inline.} =
+  ## Tries to parse bool from string
+  runnableExamples:
+    doAssert tryParseBool("1", false) == true
+    doAssert tryParseBool("0", true) == false
+    doAssert tryParseBool("test", true) == true
+  try:
+    result = parseBool(value)
+  except ValueError:
+    result = default
+
+func parseValue*[T: BaseType](value: string; default: T): T {.inline.} =
+  ## Tries to parse the string to the same type as `default`
+  runnableExamples:
+    doAssert parseValue("10", 10) == 10
+    doAssert parseValue("10", 0.0) == 10.0
+    doAssert parseValue("1", false) == true
+    doAssert parseValue("true", false) == true
+    doAssert parseValue("test", false) == false
+  if value.len == 0:
+    return default
+
+  when T is int:
+    result = tryParseInt(value, default)
+  elif T is float:
+    result = tryParseFloat(value, default)
+  elif T is bool:
+    result = tryParseBool(value, default)
+  elif T is string:
+    result = value

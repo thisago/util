@@ -35,3 +35,24 @@ suite "For string":
         initVarParser("()", (k: string) => friend[k])
       ]
     check text.parseStr(parsers) == "My name is John and I am 42 years old; My friend Fred is 23 years old.\lMy favorite food is called cake, and I've had it in my fridge for 2 days now"
+
+  test "tryParseInt":
+    check tryParseInt("10") == 10
+    check tryParseInt("test") == -1
+    check tryParseInt("test", 12) == 12
+  test "tryParseFloat":
+    check tryParseFloat("10") == 10.0
+    check tryParseFloat("1.823") == 1.823
+    check tryParseFloat("test") == -1.0
+    check tryParseFloat("test", 12) == 12.0
+  test "tryParseBool":
+    check tryParseBool("1", false) == true
+    check tryParseBool("0", true) == false
+    check tryParseBool("test", true) == true
+  test "parseValue":
+    check parseValue("10", 10) == 10
+    check parseValue("10", "") == "10"
+    check parseValue("10", 0.0) == 10.0
+    check parseValue("1", false) == true
+    check parseValue("true", false) == true
+    check parseValue("test", false) == false

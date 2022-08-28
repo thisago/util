@@ -26,7 +26,11 @@
     <div class="container">
       <h1 class="title">Index</h1>
       Modules: <a href="util/forFs.html">util/forFs</a>, <a href="util/forHtml.html">util/forHtml</a>, <a href="util/forRand.html">util/forRand</a>, <a href="util/forSeq.html">util/forSeq</a>, <a href="util/forStr.html">util/forStr</a>, <a href="util/forTerm.html">util/forTerm</a>.<br/><p /><h2>API symbols</h2>
-<dl><dt><a name="between" href="#between"><span>between:</span></a></dt><dd><ul class="simple">
+<dl><dt><a name="BaseType" href="#BaseType"><span>BaseType:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="forStr: BaseType" href="util/forStr.html#BaseType">forStr: BaseType</a></li>
+          </ul></dd>
+<dt><a name="between" href="#between"><span>between:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="forStr: between(text, start, finish: string; default = &quot;&quot;; catchAll = false): string" href="util/forStr.html#between%2Cstring%2Cstring%2Cstring%2Cstring">forStr: between(text, start, finish: string; default = &quot;&quot;; catchAll = false): string</a></li>
           </ul></dd>
@@ -68,6 +72,10 @@
 <li><a class="reference external"
           data-doc-search-tag="forStr: parseStr(text: string; parsers: varargs[VarParser]): string" href="util/forStr.html#parseStr%2Cstring%2Cvarargs%5BVarParser%5D">forStr: parseStr(text: string; parsers: varargs[VarParser]): string</a></li>
           </ul></dd>
+<dt><a name="parseValue" href="#parseValue"><span>parseValue:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="forStr: parseValue[T: BaseType](value: string; default: T): T" href="util/forStr.html#parseValue%2Cstring%2CT">forStr: parseValue[T: BaseType](value: string; default: T): T</a></li>
+          </ul></dd>
 <dt><a name="randStr" href="#randStr"><span>randStr:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="forRand: randStr(len: int; chars = Digits + Letters): string" href="util/forRand.html#randStr%2Cint">forRand: randStr(len: int; chars = Digits + Letters): string</a></li>
@@ -75,6 +83,18 @@
 <dt><a name="stopAt" href="#stopAt"><span>stopAt:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="forStr: stopAt(s, stop: string or char): string" href="util/forStr.html#stopAt%2C%2C">forStr: stopAt(s, stop: string or char): string</a></li>
+          </ul></dd>
+<dt><a name="tryParseBool" href="#tryParseBool"><span>tryParseBool:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="forStr: tryParseBool(value: string; default = false): bool" href="util/forStr.html#tryParseBool%2Cstring">forStr: tryParseBool(value: string; default = false): bool</a></li>
+          </ul></dd>
+<dt><a name="tryParseFloat" href="#tryParseFloat"><span>tryParseFloat:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="forStr: tryParseFloat(value: string; default = -1.0): float" href="util/forStr.html#tryParseFloat%2Cstring%2Cfloat">forStr: tryParseFloat(value: string; default = -1.0): float</a></li>
+          </ul></dd>
+<dt><a name="tryParseInt" href="#tryParseInt"><span>tryParseInt:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="forStr: tryParseInt(value: string; default = -1): int" href="util/forStr.html#tryParseInt%2Cstring%2Cint">forStr: tryParseInt(value: string; default = -1): int</a></li>
           </ul></dd>
 <dt><a name="VarParser" href="#VarParser"><span>VarParser:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -84,7 +104,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-08-17 19:55:39 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-08-28 12:32:35 UTC</small>
       </div>
     </div>
   </div>

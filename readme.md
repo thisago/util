@@ -87,6 +87,57 @@ echo text.parseStr parsers
 #   My favorite food is called cake, and I've had it in my fridge for 2 days now
 ```
 
+### `func tryParseInt*(value: string; default = -1): int {.inline.}`
+
+<a href="https://thisago.github.io/util/util/forStr.html#tryParseInt%2Cstring%2Cint"><small>Source</small></a>
+
+Tries to parse int from string
+
+```nim
+doAssert tryParseInt("10") == 10
+doAssert tryParseInt("test") == -1
+doAssert tryParseInt("test", 12) == 12
+```
+
+### `func tryParseFloat*(value: string; default = -1.0): float {.inline.}`
+
+<a href="https://thisago.github.io/util/util/forStr.html#tryParseFloat%2Cstring%2Cfloat"><small>Source</small></a>
+
+Tries to parse float from string
+
+```nim
+doAssert tryParseFloat("10") == 10.0
+doAssert tryParseFloat("1.823") == 1.823
+doAssert tryParseFloat("test") == -1.0
+doAssert tryParseFloat("test", 12) == 12.0
+```
+
+### `func tryParseBool*(value: string; default = false): bool {.inline.}`
+
+<a href="https://thisago.github.io/util/util/forStr.html#tryParseBool%2Cstring"><small>Source</small></a>
+
+Tries to parse bool from string
+
+```nim
+doAssert tryParseBool("1", false) == true
+doAssert tryParseBool("0", true) == false
+doAssert tryParseBool("test", true) == true
+```
+
+### `func parseValue*[T: BaseType](value: string; default: T): T {.inline.}`
+
+<a href="https://thisago.github.io/util/util/forStr.html#parseValue%2Cstring%2CT"><small>Source</small></a>
+
+Tries to parse the string to the same type as `default`
+
+```nim
+doAssert parseValue("10", 10) == 10
+doAssert parseValue("10", 0.0) == 10.0
+doAssert parseValue("1", false) == true
+doAssert parseValue("true", false) == true
+doAssert parseValue("test", false) == false
+```
+
 ## _forTerm_ module
 
 ### `proc echoSingleLine(xs: varargs[string, `$`])`
