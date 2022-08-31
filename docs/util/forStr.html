@@ -85,6 +85,10 @@
   <li><a class="reference" href="#parseValue%2Cstring%2CT" title="parseValue[T: BaseType](value: string; default: T): T">parseValue[T: BaseType](value: string; default: T): T</a></li>
 
 </ul>
+<ul class="simple nested-toc-section">removeAccent
+  <li><a class="reference" href="#removeAccent%2Cstring" title="removeAccent(str: string): string">removeAccent(str: string): string</a></li>
+
+</ul>
 <ul class="simple nested-toc-section">stopAt
   <li><a class="reference" href="#stopAt%2C%2C" title="stopAt(s, stop: string or char): string">stopAt(s, stop: string or char): string</a></li>
 
@@ -244,6 +248,24 @@
 </div>
 
 </div>
+<div id="removeAccent-procs-all">
+  <div id="removeAccent,string">
+  <dt><pre><span class="Keyword">proc</span> <a href="#removeAccent%2Cstring"><span class="Identifier">removeAccent</span></a><span class="Other">(</span><span class="Identifier">str</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> </span><span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span>.}</pre></dt>
+  <dd>
+    
+    <p>Removes all accents of string</p>
+<p>Based in WordPress implementation: <a class="reference external" href="https://github.com/WordPress/WordPress/blob/a2693fd8602e3263b5925b9d799ddd577202167d/wp-includes/formatting.php#L1528">https://github.com/WordPress/WordPress/blob/a2693fd8602e3263b5925b9d799ddd577202167d/wp-includes/formatting.php#L1528</a></p>
+
+<p><strong class="examples_text">Example:</strong></p>
+<pre class="listing"><span class="Identifier">doAssert</span> <span class="StringLit">&quot;ªºÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿØĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĲĳĴĵĶķĸĹĺĻļĽľĿŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŒœŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽžſȘșȚț€£ơƯưẦầẰằỀềỒồỜờỪừỲỳẢảẨẩẲẳẺẻỂểỈỉỎỏỔổỞởỦủỬửỶỷẪẫẴẵẼẽỄễỖỗỠỡỮữỸỹẤấẮắẾếỐốỚớỨứẠạẬậẶặẸẹỆệỊịỌọỘộỢợỤụỰựỴỵɑǕǖǗǘǍǎǏǐǑǒǓǔǙǚǛǜ&quot;</span><span class="Operator">.</span><span class="Identifier">removeAccent</span> <span class="Operator">==</span>
+        <span class="StringLit">&quot;aoAAAAAAAECEEEEIIIIDNOOOOOUUUUYTHsaaaaaaaeceeeeiiiidnoooooouuuuythyOAaAaAaCcCcCcCcDdDdEeEeEeEeEeGgGgGgGgHhHhIiIiIiIiIiIJijJjKkkLlLlLlLlLlNnNnNnnNnOoOoOoOEoeRrRrRrSsSsSsSsTtTtTtUuUuUuUuUuUuWwYyYZzZzZzsSsTtEoUuAaAaEeOoOoUuYyAaAaAaEeEeIiOoOoOoUuUuYyAaAaEeEeOoOoUuYyAaAaEeOoOoUuAaAaAaEeEeIiOoOoOoUuUuYyaUuUuAaIiOoUuUuUu&quot;</span></pre>
+    <a href="https://github.com/thisago/util/tree/master/src/util/forStr.nim#L219" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/thisago/util/edit/devel/src/util/forStr.nim#L219" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+
+  </dd>
+</div>
+
+</div>
 <div id="stopAt-procs-all">
   <div id="stopAt,,">
   <dt><pre><span class="Keyword">func</span> <a href="#stopAt%2C%2C"><span class="Identifier">stopAt</span></a><span class="Other">(</span><span class="Identifier">s</span><span class="Other">,</span> <span class="Identifier">stop</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Keyword">or</span> <span class="Identifier">char</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span></pre></dt>
@@ -325,7 +347,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-08-28 12:32:35 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-08-31 14:00:57 UTC</small>
       </div>
     </div>
   </div>

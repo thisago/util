@@ -8,3 +8,4 @@ tryParseInt	util/forStr.html#tryParseInt,string,int	forStr: tryParseInt(value: s
 tryParseFloat	util/forStr.html#tryParseFloat,string,float	forStr: tryParseFloat(value: string; default = -1.0): float	
 tryParseBool	util/forStr.html#tryParseBool,string	forStr: tryParseBool(value: string; default = false): bool	
 parseValue	util/forStr.html#parseValue,string,T	forStr: parseValue[T: BaseType](value: string; default: T): T	
+removeAccent	util/forStr.html#removeAccent,string	forStr: removeAccent(str: string): string	

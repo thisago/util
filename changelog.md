@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.2.0 (Aug 31 2022)
+
+- Added `forStr.removeAccent`
+
+---
+
 ## Version 1.1.0 (Aug 28 2022)
 
 - Added try parse functions an a proc to parse to type of the default value
