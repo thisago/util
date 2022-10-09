@@ -296,3 +296,22 @@ proc removeAccent*(str: string): string =
     # grave accent
     "Ǜ": "U", "ǜ": "u",
   })
+
+from std/strutils import split
+
+proc timestampToSec*(timestamp: string): int =
+  ## Converts a readable timestamp to seconds  
+  ## supports:
+  ## - 00:00:00
+  ## - 00:00
+  result = -1
+  let parts = timestamp.split ":"
+  if parts.len >= 2:
+    try:
+      result = 0
+      if parts.len == 3:
+        result += parts[0].parseInt * 60 * 60 # hours
+      result += parts[^2].parseInt * 60 # minutes
+      result += parts[^1].parseInt # seconds
+    except ValueError:
+      result = -1

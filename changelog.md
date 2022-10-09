@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.3.0 (Oct 9 2022)
+
+- Added `forStr.timestampToSec`
+
+---
+
 ## Version 1.2.0 (Aug 31 2022)
 
 - Added `forStr.removeAccent`
