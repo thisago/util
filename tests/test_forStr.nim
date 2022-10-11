@@ -62,3 +62,7 @@ suite "For string":
   test "timestampToSec":
     check "01:06:10".timestampToSec == 3970
     check "3:2".timestampToSec == 182
+  test "secToTimestamp":
+    check secToTimestamp(3970) == "01:06:10"
+    check secToTimestamp(182) == "03:02"
+    check secToTimestamp(3600) == "01:00:00"

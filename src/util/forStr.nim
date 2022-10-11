@@ -298,12 +298,16 @@ proc removeAccent*(str: string): string =
   })
 
 from std/strutils import split
+from std/strformat import fmt
 
 proc timestampToSec*(timestamp: string): int =
   ## Converts a readable timestamp to seconds  
   ## supports:
   ## - 00:00:00
   ## - 00:00
+  runnableExamples:
+    doAssert "01:06:10".timestampToSec == 3970
+    doAssert "3:2".timestampToSec == 182
   result = -1
   let parts = timestamp.split ":"
   if parts.len >= 2:
@@ -315,3 +319,32 @@ proc timestampToSec*(timestamp: string): int =
       result += parts[^1].parseInt # seconds
     except ValueError:
       result = -1
+
+proc secToTimestamp*(seconds: int): string =
+  ## Converts the seconds to a readable timestamp  
+  ## converts to:
+  ## - 00:00:00
+  ## - 00:00
+  runnableExamples:
+    doAssert secToTimestamp 3970 == "01:06:10"
+    doAssert secToTimestamp 182 == "03:02"
+    doAssert secToTimestamp 3600 == "01:00:00"
+  result = ""
+  var
+    s = seconds
+    secs = 0
+    mins = 0
+    hrs = 0
+  while s > 0:
+    if s >= 60:
+      inc mins
+      s -= 60
+      if mins >= 60:
+        inc hrs
+        mins -= 60
+    else:
+      secs = s
+      s = 0
+  if hrs > 0:
+    result = fmt"{hrs:02}:"
+  result.add fmt"{mins:02}:{secs:02}"

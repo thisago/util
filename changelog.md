@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.4.0 (Oct 11 2022)
+
+- Added `forStr.secToTimestamp`
+
+---
+
 ## Version 1.3.0 (Oct 9 2022)
 
 - Added `forStr.timestampToSec`
