@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.5.0 (Thu Nov 17, 2022)
+
+- Added `forOs.getEnv`
+
+---
+
 ## Version 1.4.0 (Oct 11 2022)
 
 - Added `forStr.secToTimestamp`
