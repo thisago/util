@@ -168,9 +168,9 @@ converts to:
 - 00:00:00
 - 00:00
 ```nim
-doAssert secToTimestamp 3970 == "01:06:10"
-doAssert secToTimestamp 182 == "03:02"
-doAssert secToTimestamp 3600 == "01:00:00"
+doAssert 3970.secToTimestamp == "01:06:10"
+doAssert 182.secToTimestamp == "03:02"
+doAssert 3600.secToTimestamp == "01:00:00"
 ```
 
 ## _forTerm_ module
