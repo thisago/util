@@ -163,10 +163,13 @@ doAssert "3:2".timestampToSec == 182
 ```
 
 ### `secToTimestamp*(seconds: int): string`
+
 Converts the seconds to a readable timestamp  
 converts to:
+
 - 00:00:00
 - 00:00
+
 ```nim
 doAssert 3970.secToTimestamp == "01:06:10"
 doAssert 182.secToTimestamp == "03:02"
@@ -258,6 +261,24 @@ Need call `randomize` before
 from std/random import randomize
 randomize()
 doAssert randStr(10).len == 10
+```
+
+---
+
+## _forOs_ module
+
+### `proc getEnv*(key: string; default = ""; encoding = "ibm850"): string`
+
+<a href="https://thisago.github.io/util/util/forRand.html#randStr%2Cint"><small>Source</small></a>
+
+Get the env and converts it to utf8 if in windows
+
+**Example**
+
+```nim
+from std/os import putEnv
+putEnv("name", "Joe")
+doAssert getEnv("name") == "Joe"
 ```
 
 ---

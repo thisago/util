@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.5.1 (Thu Nov 18, 2022)
+
+- Fixed `forOs.getEnv`
+
+---
+
 ## Version 1.5.0 (Thu Nov 17, 2022)
 
 - Added `forOs.getEnv`
