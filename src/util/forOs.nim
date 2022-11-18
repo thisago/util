@@ -3,7 +3,7 @@
 from std/encodings import convert
 from std/os import nil
 
-proc getEnv*(key: string; default = ""; encoding = "ibm850"): string =
+proc getEnv*(key: string; default = ""; encoding = "CP1252"): string =
   ## Get the env and converts it to utf8 if in windows
   runnableExamples:
     from std/os import putEnv

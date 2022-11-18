@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.5.2 (Thu Nov 18, 2022)
+
+- Fixed `forOs.getEnv` correct encoding for windows
+
+---
+
 ## Version 1.5.1 (Thu Nov 18, 2022)
 
 - Fixed `forOs.getEnv`
