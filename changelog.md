@@ -1,5 +1,18 @@
 # Changelog
 
+## Version 1.6.0 (Tue Nov 22, 2022)
+
+- Added:
+  - `forTime.nowUnix` - Returns the unix time of now
+  - `forTime.toUnix` - Returns the unix time of provided date
+  - `forTime.setMidnight` - Calculates the next birthday date
+  - `forTime.nextBirthday` - Calculates the next birthday date
+  - `forTime.lastBirthday` - Calculates the next birthday date
+  - `forTime.yearsOld` - Calculates the age based on `birth`
+  - `forTime.decimalYearsOld` - Calculates the age with decimal precision
+
+---
+
 ## Version 1.5.2 (Thu Nov 18, 2022)
 
 - Fixed `forOs.getEnv` correct encoding for windows
