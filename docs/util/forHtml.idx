@@ -1,1 +1,0 @@
-genClass	util/forHtml.html#genClass,openArray[]	forHtml: genClass(classes: openArray[(string, bool)]): string	

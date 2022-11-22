@@ -1,3 +1,0 @@
-occurrences	util/forSeq.html#occurrences,openArray[T]	forSeq: occurrences[T](xs: openArray[T]): Table[T, int]	
-occurrence	util/forSeq.html#occurrence,openArray[T],T	forSeq: occurrence[T](xs: openArray[T]; val: T): int	
-mostCommon	util/forSeq.html#mostCommon,openArray[T]	forSeq: mostCommon[T](xs: openArray[T]): seq[T]	
