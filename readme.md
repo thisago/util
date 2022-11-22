@@ -35,6 +35,19 @@ doAssert "The dog is lazy".between("dog", "lazy") == " is "
 doAssert "The dog is lazy".between("dog", "lazy", catchAll = true) == "dog is lazy"
 ```
 
+### `func setBetween*(text, start, finish, inside: string; default = text; replaceAll = false): string`
+Set the text between two strings
+
+If text not found, the text will be the default
+
+If `replaceAll` is true, it will replace the text used to find too
+
+**Example**
+```nim
+doAssert "I want to eat a large pineapple".setBetween("a ", " pine", "small") == "I want to eat a small pineapple"
+doAssert "I want to eat a large pineapple".setBetween("a ", " pine", "small ", replaceAll = true) == "I want to eat small apple"
+```
+
 ### `func stopAt*(s, stop: string or char): string`
 
 Removes all text after `stop` (and the `stop` text too)

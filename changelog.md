@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.7.0 (Tue Nov 22, 2022)
+
+- Added: `forStr.setBetween` - Set the text between two strings
+
+---
+
 ## Version 1.6.0 (Tue Nov 22, 2022)
 
 - Added:

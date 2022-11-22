@@ -8,6 +8,10 @@ suite "For string":
   test "between":
     check "The dog is lazy".between("dog", "lazy") == " is "
     check "The dog is lazy".between("dog", "lazy", catchAll = true) == "dog is lazy"
+  
+  test "setBetween":
+    check "I want to eat a large pineapple".setBetween("a ", " pine", "small") == "I want to eat a small pineapple"
+    check "I want to eat a large pineapple".setBetween("a ", " pine", "small ", replaceAll = true) == "I want to eat small apple"
     
   test "stopAt":
     check "Hello World! My name is John".stopAt('!') == "Hello World"

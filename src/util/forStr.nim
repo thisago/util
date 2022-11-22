@@ -5,7 +5,7 @@ from std/sugar import `->`
 func between*(text, start, finish: string; default = ""; catchAll = false): string =
   ## Get the text between two strings
   ## 
-  ## If `justMiddle` is true, just the middle text will be returned, the searched text will be removed
+  ## If `catchAll` is false, just the middle text will be returned, the searched text will be removed
   runnableExamples:
     doAssert "The dog is lazy".between("dog", "lazy") == " is "
     doAssert "The dog is lazy".between("dog", "lazy", catchAll = true) == "dog is lazy"
@@ -25,6 +25,37 @@ func between*(text, start, finish: string; default = ""; catchAll = false): stri
         result = res[0..finishIndex]
       except ValueError:
         discard
+
+func setBetween*(text, start, finish, inside: string; default = text; replaceAll = false): string =
+  ## Set the text between two strings
+  ## 
+  ## If text not found, the text will be the default
+  ## 
+  ## If `replaceAll` is true, it will replace the text used to find too
+  runnableExamples:
+    doAssert "I want to eat a large pineapple".setBetween("a ", " pine", "small") == "I want to eat a small pineapple"
+    doAssert "I want to eat a large pineapple".setBetween("a ", " pine", "small ", replaceAll = true) == "I want to eat small apple"
+  result = text
+  var startIndex = text.find start
+  if startIndex >= 0:
+    if not replaceAll:
+      startIndex += start.len
+    var
+      res = text[startIndex..^1]
+      finishIndex = res.find finish
+    if finishIndex >= 0:
+      dec finishIndex
+      if replaceAll:
+        finishIndex += finish.len
+      try:
+        result = text
+        result[startIndex..startIndex + finishIndex] = inside
+      except ValueError:
+        result = default
+
+when isMainModule:
+  echo "I want to eat a large pineapple".setBetween("a ", " pine", "small")
+  echo "I want to eat a large pineapple".setBetween("a ", " pine", "small ", replaceAll = true)
 
 func stopAt*(s, stop: string or char): string =
   ## Removes all text after `stop` (and the `stop` text too)
