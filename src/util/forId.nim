@@ -55,8 +55,8 @@ const newParsedCpf = (false,[-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1])
 func parseCpf*(cpf: string): ParsedCpf =
   ## Strip and parses the cpf
   runnableExamples:
-    let parsed = "111.444.777-35".parseCpf.verification
-    doAssert parse.firstDigits == [1, 1, 1, 4, 4, 4, 7, 7, 7]
+    let parsed = "111.444.777-35".parseCpf
+    doAssert parsed.firstDigits == [1, 1, 1, 4, 4, 4, 7, 7, 7]
     doAssert parsed.verification == [3, 5]
   result = newParsedCpf
   template add(res: var ParsedCpf; ch: char) =
@@ -84,7 +84,7 @@ proc validCpf*(cpf: string): bool =
     from std/random import randomize
     randomize()
     doAssert validCpf "111.444.777-35"
-    doAssert not validCpf "111.444.777-35"
+    doAssert not validCpf "111.444.777-99"
   result = false
   let (valid, firstDigits, verification) = parseCpf cpf
   if not valid:
@@ -92,7 +92,7 @@ proc validCpf*(cpf: string): bool =
   let d = firstDigits.genCpfVerificationDigits
 
   result = verification == d
-    
+  
 when isMainModule:
   from std/random import randomize
   randomize()

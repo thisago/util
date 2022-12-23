@@ -3,10 +3,10 @@ from std/random import randomize
 
 import util/forRand
 
-randomize()
+randomize 0
 
 suite "For rand":
   test "randStr":
-    check randStr(10).len == 10
-    check randStr(1).len == 1
-    check randStr(10) != randStr(10)
+    check randStr(10) == "tpa18NzNnH"
+  test "randSeq":
+    check randSeq(5, 5) == @[5, 0, 2, 5, 2]

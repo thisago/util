@@ -382,8 +382,8 @@ Strip and parses the cpf
 
 **Example**
 ```nim
-let parsed = "111.444.777-35".parseCpf.verification
-doAssert parse.firstDigits == [1, 1, 1, 4, 4, 4, 7, 7, 7]
+let parsed = "111.444.777-35".parseCpf
+doAssert parsed.firstDigits == [1, 1, 1, 4, 4, 4, 7, 7, 7]
 doAssert parsed.verification == [3, 5]
 ```
 
@@ -395,7 +395,7 @@ Checks if the given CPF is valid
 from std/random import randomize
 randomize()
 doAssert validCpf "111.444.777-35"
-doAssert not validCpf "111.444.777-35"
+doAssert not validCpf "111.444.777-99"
 ```
 
 ---

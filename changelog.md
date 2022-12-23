@@ -1,9 +1,16 @@
 # Changelog
 
+## Version 1.8.1 (Fri 23 Dec 2022)
+
+- Added `forRand.randSeq` test
+- Added tests for `forId` module
+ 
+---
+
 ## Version 1.8.0 (Fri 23 Dec 2022)
 
 - Added `forRand.randSeq`
-- Added `forId` Module with
+- Added `forId` module with
   - CPF generation
   - CPF verification
   - CPF parsing
