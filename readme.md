@@ -398,6 +398,48 @@ doAssert validCpf "111.444.777-35"
 doAssert not validCpf "111.444.777-99"
 ```
 
+### `func genCnpjVerificationDigits*(digits: openArray[int]): array[2, int]`
+Generates the CNPJ verification  code
+
+**Example**
+```nim
+from std/random import randomize
+randomize()
+doAssert [2, 4, 3, 8, 2, 7, 5, 3, 0, 0, 0, 1].genCnpjVerificationDigits == [7, 7]
+```
+
+### `func parseCnpj*(cpf: string): ParsedCnpj`
+Strip and parses the CNPJ
+
+**Example**
+```nim
+let parsed = "11.222.333/0001-81".parseCnpj
+doAssert parsed.code == [1,1,2,2,2,3,3,3,0,0,0,1]
+doAssert parsed.verification == [8,1]
+```
+
+### `proc genCnpj*(formatted = true; valid = true): string`
+Brazil CNPJ generator  
+Based in https://www.macoratti.net/alg_cnpj.htm
+
+**Example**
+```nim
+from std/random import randomize
+randomize()
+doAssert genCnpj(formatted = true).len == 18
+doAssert genCnpj(formatted = false).len == 14
+```
+### `proc validCnpj*(cpf: string): bool`
+Checks if the given CNPJ is valid
+
+**Example**
+```nim
+from std/random import randomize
+randomize()
+doAssert validCnpj "11.222.333/0001-81"
+doAssert not validCnpj "11.222.333/0001-99"
+```
+
 ---
 
 ## License

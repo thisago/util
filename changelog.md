@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.9.1 (Fri 23 Dec 2022)
+
+- Added tests for CNPJ
+
+---
+
 ## Version 1.9.0 (Fri 23 Dec 2022)
 
 - Added cnpj testing and generation
