@@ -4,7 +4,8 @@ import util/[
   forTerm,
   forFs,
   forSeq,
-  forRand
+  forRand,
+  forId
 ]
 
-export forHtml, forStr, forTerm, forFs, forSeq, forRand
+export forHtml, forStr, forTerm, forFs, forSeq, forRand, forId
