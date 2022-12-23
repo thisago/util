@@ -248,6 +248,16 @@ randomize()
 doAssert randStr(10).len == 10
 ```
 
+### `proc newRandSeq(len, max: int; min = 0): seq[int]`
+Generates an array with the provided `len` with the random
+numbers less or equals than `max`
+
+**Example**
+
+```nim
+
+```
+
 ---
 
 ## _forOs_ module
@@ -340,6 +350,52 @@ Based in https://github.com/rubenwardy/renewedtab/blob/35d0afb8cdf5a3b701e60b137
 ```nim
 from std/times import fromUnix, utc
 doAssert fromUnix(946684800).utc.decimalYearsOld(fromUnix(1671494400).utc) == 22.96712328767123
+```
+
+---
+## _forId_ module
+
+### `func genCpfVerificationDigits*(digits: openArray[int]): array[2, int]`
+Generates the CPF verification  code
+
+**Example**
+```nim
+from std/random import randomize
+randomize()
+doAssert [1, 1, 1, 4, 4, 4, 7, 7, 7].genCpfVerificationDigits == [3, 5]
+```
+
+### `proc genCpf*(formatted = true; valid = true): string`
+Brazil CPF generator
+Based in https://www.macoratti.net/alg_cpf.htm
+
+**Example**
+```nim
+from std/random import randomize
+randomize()
+doAssert genCpf(formatted = true).len == 14
+doAssert genCpf(formatted = false).len == 11
+```
+
+### `func parseCpf*(cpf: string): ParsedCpf`
+Strip and parses the cpf
+
+**Example**
+```nim
+let parsed = "111.444.777-35".parseCpf.verification
+doAssert parse.firstDigits == [1, 1, 1, 4, 4, 4, 7, 7, 7]
+doAssert parsed.verification == [3, 5]
+```
+
+### `proc validCpf*(cpf: string): bool`
+Checks if the given CPF is valid
+
+**Example**
+```nim
+from std/random import randomize
+randomize()
+doAssert validCpf "111.444.777-35"
+doAssert not validCpf "111.444.777-35"
 ```
 
 ---

@@ -1,5 +1,15 @@
 # Changelog
 
+## Version 1.8.0 (Fri 23 Dec 2022)
+
+- Added `forRand.randSeq`
+- Added `forId` Module with
+  - CPF generation
+  - CPF verification
+  - CPF parsing
+  
+---
+
 ## Version 1.7.0 (Tue Nov 22, 2022)
 
 - Added: `forStr.setBetween` - Set the text between two strings
