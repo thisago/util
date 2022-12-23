@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.9.0 (Fri 23 Dec 2022)
+
+- Added cnpj testing and generation
+ 
+---
+
 ## Version 1.8.1 (Fri 23 Dec 2022)
 
 - Added `forRand.randSeq` test
