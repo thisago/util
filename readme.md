@@ -301,6 +301,8 @@ doAssert fromUnix(1669113763).toUnix == 1669113763
 Calculates the next birthday date
 
 Based in https://github.com/rubenwardy/renewedtab/blob/35d0afb8cdf5a3b701e60b137ff1db7110dcc385/src/app/utils/dates.tsx#L7
+
+Based in https://github.com/rubenwardy/renewedtab/blob/35d0afb8cdf5a3b701e60b137ff1db7110dcc385/src/app/utils/dates.tsx#L7
   
 **Example**
 ```nim
