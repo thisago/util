@@ -255,7 +255,9 @@ numbers less or equals than `max`
 **Example**
 
 ```nim
-
+from std/random import randomize
+randomize 0
+doAssert randSeq(5, 5) == @[1, 1, 2, 3, 0]
 ```
 
 ---
@@ -294,16 +296,13 @@ Returns the unix time of provided date
 from std/times import fromUnix
 doAssert fromUnix(1669113763).toUnix == 1669113763
 ```
-  date.toTime.toUnix
-
+<!-- date.toTime.toUnix -->
 
 ### `proc setMidnight*(date: DateTime): DateTime`
 Calculates the next birthday date
 
 Based in https://github.com/rubenwardy/renewedtab/blob/35d0afb8cdf5a3b701e60b137ff1db7110dcc385/src/app/utils/dates.tsx#L7
 
-Based in https://github.com/rubenwardy/renewedtab/blob/35d0afb8cdf5a3b701e60b137ff1db7110dcc385/src/app/utils/dates.tsx#L7
-  
 **Example**
 ```nim
 from std/times import fromUnix, utc
@@ -314,7 +313,7 @@ doAssert fromUnix(946684999).utc.setMidnight.toUnix == 946684800
 Calculates the next birthday date
 
 Based in https://github.com/rubenwardy/renewedtab/blob/35d0afb8cdf5a3b701e60b137ff1db7110dcc385/src/app/utils/dates.tsx#L21
-  
+
 **Example**
 ```nim
 from std/times import fromUnix, utc
