@@ -7,8 +7,9 @@ func between*(text, start, finish: string; default = ""; catchAll = false): stri
   ## 
   ## If `catchAll` is false, just the middle text will be returned, the searched text will be removed
   runnableExamples:
-    doAssert "The dog is lazy".between("dog", "lazy") == " is "
-    doAssert "The dog is lazy".between("dog", "lazy", catchAll = true) == "dog is lazy"
+    const phrase = "The dog is lazy"
+    doAssert phrase.between("dog", "lazy") == " is "
+    doAssert phrase.between("dog", "lazy", catchAll = true) == "dog is lazy"
   result = default
   var startIndex = text.find start
   if startIndex >= 0:
@@ -33,8 +34,9 @@ func setBetween*(text, start, finish, inside: string; default = text; replaceAll
   ## 
   ## If `replaceAll` is true, it will replace the text used to find too
   runnableExamples:
-    doAssert "I want to eat a large pineapple".setBetween("a ", " pine", "small") == "I want to eat a small pineapple"
-    doAssert "I want to eat a large pineapple".setBetween("a ", " pine", "small ", replaceAll = true) == "I want to eat small apple"
+    const phrase = "I want to eat a large pineapple"
+    doAssert phrase.setBetween("a ", " pine", "small") == "I want to eat a small pineapple"
+    doAssert phrase.setBetween("a ", " pine", "small ", replaceAll = true) == "I want to eat small apple"
   result = text
   var startIndex = text.find start
   if startIndex >= 0:
@@ -52,10 +54,6 @@ func setBetween*(text, start, finish, inside: string; default = text; replaceAll
         result[startIndex..startIndex + finishIndex] = inside
       except ValueError:
         result = default
-
-when isMainModule:
-  echo "I want to eat a large pineapple".setBetween("a ", " pine", "small")
-  echo "I want to eat a large pineapple".setBetween("a ", " pine", "small ", replaceAll = true)
 
 func stopAt*(s, stop: string or char): string =
   ## Removes all text after `stop` (and the `stop` text too)
@@ -118,7 +116,7 @@ proc parseStr*(text: string; parsers: varargs[VarParser]): string =
         initVarParser("()", (k: string) => friend[k]),
         initVarParser("**", (k: string) => food[k], true)
       ]
-    echo text.parseStr parsers
+    doAssert text.parseStr(parsers) == "My name is John and I am 42 years old; My friend Fred is 23 years old.\lMy favorite food is called cake, and I've had it in my fridge for 2 days now"
   let stopTextLen = text.len - 1
   var
     curr: tuple[index: int; text: string] = (-1, "")
