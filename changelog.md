@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.10.1 (Thu 5 Jan 2023)
+
+- Added auto default for `forStr.tryParseEnum`
+
+---
+
 ## Version 1.10.0 (Thu 5 Jan 2023)
 
 - Added `forStr.tryParseEnum`

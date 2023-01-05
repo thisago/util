@@ -65,9 +65,9 @@ suite "For string":
   test "tryParseEnum":
     type MyEnum = enum
       first = "1st", second, third = "3th"
-    check tryParseEnum[MyEnum]("1_st", second) == first
-    check tryParseEnum[MyEnum]("second", first) == second
-    check tryParseEnum[MyEnum]("3th", first) == third
+    check tryParseEnum[MyEnum]("1_st") == first
+    check tryParseEnum[MyEnum]("second") == second
+    check tryParseEnum[MyEnum]("3th") == third
     check tryParseEnum[MyEnum]("4th", first) == first
   test "removeAccent":
     check "ªºÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿØĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĲĳĴĵĶķĸĹĺĻļĽľĿŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŒœŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽžſȘșȚț€£ơƯưẦầẰằỀềỒồỜờỪừỲỳẢảẨẩẲẳẺẻỂểỈỉỎỏỔổỞởỦủỬửỶỷẪẫẴẵẼẽỄễỖỗỠỡỮữỸỹẤấẮắẾếỐốỚớỨứẠạẬậẶặẸẹỆệỊịỌọỘộỢợỤụỰựỴỵɑǕǖǗǘǍǎǏǐǑǒǓǔǙǚǛǜ".removeAccent ==

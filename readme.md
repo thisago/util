@@ -140,9 +140,9 @@ TODO: set default automatically
 ```nim
 type MyEnum = enum
   first = "1st", second, third = "3th"
-doAssert tryParseEnum[MyEnum]("1_st", second) == first
-doAssert tryParseEnum[MyEnum]("second", first) == second
-doAssert tryParseEnum[MyEnum]("third", first) == third
+doAssert tryParseEnum[MyEnum]("1_st") == first
+doAssert tryParseEnum[MyEnum]("second") == second
+doAssert tryParseEnum[MyEnum]("third") == third
 doAssert tryParseEnum[MyEnum]("4th", first) == first
 ```
 

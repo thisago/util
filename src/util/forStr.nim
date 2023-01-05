@@ -248,15 +248,15 @@ func parseValue*[T: BaseType](value: string; default: T): T {.inline.} =
 
 from std/strutils import parseEnum
 
-func tryParseEnum*[T: enum](value: string; default: T): T {.inline.} =
+func tryParseEnum*[T: enum](value: string; default = T(0)): T {.inline.} =
   ## Tries to parse float from string  
   ## TODO: set default automatically
   runnableExamples:
     type MyEnum = enum
       first = "1st", second, third = "3th"
-    doAssert tryParseEnum[MyEnum]("1_st", second) == first
-    doAssert tryParseEnum[MyEnum]("second", first) == second
-    doAssert tryParseEnum[MyEnum]("third", first) == third
+    doAssert tryParseEnum[MyEnum]("1_st") == first
+    doAssert tryParseEnum[MyEnum]("second") == second
+    doAssert tryParseEnum[MyEnum]("third") == third
     doAssert tryParseEnum[MyEnum]("4th", first) == first
   try:
     result = parseEnum[T](value)
