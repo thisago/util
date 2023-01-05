@@ -1,6 +1,6 @@
 # Package
 
-version       = "1.9.1"
+version       = "1.10.0"
 author        = "Thiago Navarro"
 description   = "Small utilities that isn't large enough to have a individual modules"
 license       = "MIT"

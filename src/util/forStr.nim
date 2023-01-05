@@ -223,6 +223,7 @@ func tryParseBool*(value: string; default = false): bool {.inline.} =
   except ValueError:
     result = default
 
+
 func parseValue*[T: BaseType](value: string; default: T): T {.inline.} =
   ## Tries to parse the string to the same type as `default`
   runnableExamples:
@@ -242,6 +243,25 @@ func parseValue*[T: BaseType](value: string; default: T): T {.inline.} =
     result = tryParseBool(value, default)
   elif T is string:
     result = value
+
+# ---
+
+from std/strutils import parseEnum
+
+func tryParseEnum*[T: enum](value: string; default: T): T {.inline.} =
+  ## Tries to parse float from string  
+  ## TODO: set default automatically
+  runnableExamples:
+    type MyEnum = enum
+      first = "1st", second, third = "3th"
+    doAssert tryParseEnum[MyEnum]("1_st", second) == first
+    doAssert tryParseEnum[MyEnum]("second", first) == second
+    doAssert tryParseEnum[MyEnum]("third", first) == third
+    doAssert tryParseEnum[MyEnum]("4th", first) == first
+  try:
+    result = parseEnum[T](value)
+  except ValueError:
+    result = default
 
 from std/strutils import multiReplace
 

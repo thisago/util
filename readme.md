@@ -133,6 +133,19 @@ doAssert parseValue("true", false) == true
 doAssert parseValue("test", false) == false
 ```
 
+### `func tryParseEnum*[T: enum](value: string; default: T): T {.inline.}`
+Tries to parse float from string  
+TODO: set default automatically
+
+```nim
+type MyEnum = enum
+  first = "1st", second, third = "3th"
+doAssert tryParseEnum[MyEnum]("1_st", second) == first
+doAssert tryParseEnum[MyEnum]("second", first) == second
+doAssert tryParseEnum[MyEnum]("third", first) == third
+doAssert tryParseEnum[MyEnum]("4th", first) == first
+```
+
 ### `proc removeAccent*(str: string): string`
 
 Removes all accents of string

@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.10.0 (Thu 5 Jan 2023)
+
+- Added `forStr.tryParseEnum`
+
+---
+
 ## Version 1.9.1 (Fri 23 Dec 2022)
 
 - Added tests for CNPJ
