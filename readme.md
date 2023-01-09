@@ -135,7 +135,6 @@ doAssert parseValue("test", false) == false
 
 ### `func tryParseEnum*[T: enum](value: string; default: T): T {.inline.}`
 Tries to parse float from string  
-TODO: set default automatically
 
 ```nim
 type MyEnum = enum
