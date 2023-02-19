@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.11.0 (2023/02/19)
+
+- Added `forStr.getAllFirstLevelParenthesis`
+
+---
+
 ## Version 1.10.1 (Thu 5 Jan 2023)
 
 - Added auto default for `forStr.tryParseEnum`

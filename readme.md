@@ -36,6 +36,7 @@ doAssert "The dog is lazy".between("dog", "lazy", catchAll = true) == "dog is la
 ```
 
 ### `func setBetween*(text, start, finish, inside: string; default = text; replaceAll = false): string`
+
 Set the text between two strings
 
 If text not found, the text will be the default
@@ -43,6 +44,7 @@ If text not found, the text will be the default
 If `replaceAll` is true, it will replace the text used to find too
 
 **Example**
+
 ```nim
 const phrase = "I want to eat a large pineapple"
 doAssert phrase.setBetween("a ", " pine", "small") == "I want to eat a small pineapple"
@@ -134,7 +136,8 @@ doAssert parseValue("test", false) == false
 ```
 
 ### `func tryParseEnum*[T: enum](value: string; default: T): T {.inline.}`
-Tries to parse float from string  
+
+Tries to parse float from string
 
 ```nim
 type MyEnum = enum
@@ -181,6 +184,17 @@ converts to:
 doAssert 3970.secToTimestamp == "01:06:10"
 doAssert 182.secToTimestamp == "03:02"
 doAssert 3600.secToTimestamp == "01:00:00"
+```
+
+### `getAllFirstLevelParenthesis*(s: string): seq[string]`
+
+Returns the fist level parenthesis content of string
+
+```nim
+doAssert "(a(b(c))) test (d(e(f))) test".getAllFirstLevelParenthesis == @[
+  "a(b(c))",
+  "d(e(f))"
+]
 ```
 
 ## _forTerm_ module
@@ -259,6 +273,7 @@ doAssert randStr(10).len == 10
 ```
 
 ### `proc newRandSeq(len, max: int; min = 0): seq[int]`
+
 Generates an array with the provided `len` with the random
 numbers less or equals than `max`
 
@@ -291,85 +306,103 @@ doAssert getEnv("name") == "Joe"
 ## _forTime_ module
 
 ### `proc nowUnix*: int64 {.inline.}`
+
 Returns the unix time of now
-  
+
 **Example**
+
 ```nim
 doAssert nowUnix() > 1669113763
 ```
 
 ### `proc toUnix*(date: DateTime): int64 {.inline.}`
+
 Returns the unix time of provided date
-  
+
 **Example**
+
 ```nim
 from std/times import fromUnix
 doAssert fromUnix(1669113763).toUnix == 1669113763
 ```
+
 <!-- date.toTime.toUnix -->
 
 ### `proc setMidnight*(date: DateTime): DateTime`
+
 Calculates the next birthday date
 
 Based in https://github.com/rubenwardy/renewedtab/blob/35d0afb8cdf5a3b701e60b137ff1db7110dcc385/src/app/utils/dates.tsx#L7
 
 **Example**
+
 ```nim
 from std/times import fromUnix, utc
 doAssert fromUnix(946684999).utc.setMidnight.toUnix == 946684800
 ```
 
 ### `proc nextBirthday*(birth: DateTime; at = now()): DateTime`
+
 Calculates the next birthday date
 
 Based in https://github.com/rubenwardy/renewedtab/blob/35d0afb8cdf5a3b701e60b137ff1db7110dcc385/src/app/utils/dates.tsx#L21
 
 **Example**
+
 ```nim
 from std/times import fromUnix, utc
 doAssert fromUnix(946684800).utc.nextBirthday(fromUnix(1671494400).utc).toUnix == 1672531200
 ```
 
 ### `proc lastBirthday*(birth: DateTime; at = now()): DateTime`
+
 Calculates the next birthday date
 
 Based in https://github.com/rubenwardy/renewedtab/blob/35d0afb8cdf5a3b701e60b137ff1db7110dcc385/src/app/utils/dates.tsx#L21
-  
+
 **Example**
+
 ```nim
 from std/times import fromUnix, utc
 doAssert fromUnix(946684800).utc.lastBirthday(fromUnix(1671494400).utc).toUnix == 1640995200
 ```
 
 ### `proc yearsOld*(birth: DateTime; at = now()): int {.inline.}`
+
 Calculates the age based on `birth`
 
 Based in https://stackoverflow.com/a/4076440
-  
+
 **Example**
+
 ```nim
 from std/times import fromUnix, utc
 doAssert fromUnix(946684800).utc.yearsOld(fromUnix(1671494400).utc) == 22
 ```
 
 ### `proc decimalYearsOld*(birth: DateTime; at = now()): float`
+
 Calculates the age with decimal precision
 
 Based in https://github.com/rubenwardy/renewedtab/blob/35d0afb8cdf5a3b701e60b137ff1db7110dcc385/src/app/utils/dates.tsx#L39
-  
+
 **Example**
+
 ```nim
 from std/times import fromUnix, utc
 doAssert fromUnix(946684800).utc.decimalYearsOld(fromUnix(1671494400).utc) == 22.96712328767123
 ```
 
 ---
+
 ## _forId_ module
 
 ### `func genCpfVerificationDigits*(digits: openArray[int]): array[2, int]`
-Generates the CPF verification  code
+
+Generates the CPF verification code
 
 **Example**
+
 ```nim
 from std/random import randomize
 randomize()
@@ -377,10 +410,12 @@ doAssert [1, 1, 1, 4, 4, 4, 7, 7, 7].genCpfVerificationDigits == [3, 5]
 ```
 
 ### `proc genCpf*(formatted = true; valid = true): string`
+
 Brazil CPF generator
 Based in https://www.macoratti.net/alg_cpf.htm
 
 **Example**
+
 ```nim
 from std/random import randomize
 randomize()
@@ -389,9 +424,11 @@ doAssert genCpf(formatted = false).len == 11
 ```
 
 ### `func parseCpf*(cpf: string): ParsedCpf`
+
 Strip and parses the cpf
 
 **Example**
+
 ```nim
 let parsed = "111.444.777-35".parseCpf
 doAssert parsed.firstDigits == [1, 1, 1, 4, 4, 4, 7, 7, 7]
@@ -399,9 +436,11 @@ doAssert parsed.verification == [3, 5]
 ```
 
 ### `proc validCpf*(cpf: string): bool`
+
 Checks if the given CPF is valid
 
 **Example**
+
 ```nim
 from std/random import randomize
 randomize()
@@ -410,9 +449,11 @@ doAssert not validCpf "111.444.777-99"
 ```
 
 ### `func genCnpjVerificationDigits*(digits: openArray[int]): array[2, int]`
-Generates the CNPJ verification  code
+
+Generates the CNPJ verification code
 
 **Example**
+
 ```nim
 from std/random import randomize
 randomize()
@@ -420,9 +461,11 @@ doAssert [2, 4, 3, 8, 2, 7, 5, 3, 0, 0, 0, 1].genCnpjVerificationDigits == [7, 7
 ```
 
 ### `func parseCnpj*(cpf: string): ParsedCnpj`
+
 Strip and parses the CNPJ
 
 **Example**
+
 ```nim
 let parsed = "11.222.333/0001-81".parseCnpj
 doAssert parsed.code == [1,1,2,2,2,3,3,3,0,0,0,1]
@@ -430,20 +473,25 @@ doAssert parsed.verification == [8,1]
 ```
 
 ### `proc genCnpj*(formatted = true; valid = true): string`
+
 Brazil CNPJ generator  
 Based in https://www.macoratti.net/alg_cnpj.htm
 
 **Example**
+
 ```nim
 from std/random import randomize
 randomize()
 doAssert genCnpj(formatted = true).len == 18
 doAssert genCnpj(formatted = false).len == 14
 ```
+
 ### `proc validCnpj*(cpf: string): bool`
+
 Checks if the given CNPJ is valid
 
 **Example**
+
 ```nim
 from std/random import randomize
 randomize()

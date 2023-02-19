@@ -79,3 +79,8 @@ suite "For string":
     check secToTimestamp(3970) == "01:06:10"
     check secToTimestamp(182) == "03:02"
     check secToTimestamp(3600) == "01:00:00"
+  test "getAllFirstLevelParenthesis":
+    check "(a(b(c))) test (d(e(f))) test".getAllFirstLevelParenthesis == @[
+      "a(b(c))",
+      "d(e(f))"
+    ]

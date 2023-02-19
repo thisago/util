@@ -250,7 +250,6 @@ from std/strutils import parseEnum
 
 func tryParseEnum*[T: enum](value: string; default = T(0)): T {.inline.} =
   ## Tries to parse float from string  
-  ## TODO: set default automatically
   runnableExamples:
     type MyEnum = enum
       first = "1st", second, third = "3th"
@@ -397,3 +396,28 @@ proc secToTimestamp*(seconds: int): string =
   if hrs > 0:
     result = fmt"{hrs:02}:"
   result.add fmt"{mins:02}:{secs:02}"
+
+func getAllFirstLevelParenthesis*(s: string): seq[string] =
+  ## Returns the fist level parenthesis content of string
+  runnableExamples:
+    doAssert "(a(b(c))) test (d(e(f))) test".getAllFirstLevelParenthesis == @[
+      "a(b(c))",
+      "d(e(f))"
+    ]
+  var
+    curr = ""
+    level = 0
+  for ch in s:
+    case ch:
+    of '(', '[', '{':
+      inc level
+      if level == 1:
+        curr = ""
+        continue
+    of ')', ']', '}':
+      dec level
+      if curr.len > 0 and level == 0:
+        result.add curr
+        continue
+    else: discard
+    curr.add ch

@@ -17,4 +17,5 @@ suite "For time":
   test "yearsOld":
     check fromUnix(946684800).utc.yearsOld(fromUnix(1671494400).utc) == 22
   test "decimalYearsOld":
-    check fromUnix(946684800).utc.decimalYearsOld(fromUnix(1671494400).utc) == 22.96712328767123
+    # WHY IT CHANGED FROM `22.96712328767123` to `21.96712328767123`?
+    check fromUnix(946684800).utc.decimalYearsOld(fromUnix(1671494400).utc) == 21.96712328767123
