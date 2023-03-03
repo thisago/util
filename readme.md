@@ -499,6 +499,20 @@ doAssert validCnpj "11.222.333/0001-81"
 doAssert not validCnpj "11.222.333/0001-99"
 ```
 
+## _forOpt_ module
+
+### `func tryGet*[T](o: Option[T]; default: T): T`
+
+Try to get Option value, if none, returns default
+
+**Example**
+
+```nim
+from std/options import some, none
+doAssert some("hi").tryGet("bye") == "hi"
+doAssert none(string).tryGet("bye") == "bye"
+```
+
 ---
 
 ## License

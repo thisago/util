@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.12.0 (2023/03/3)
+
+- Added `forOpt.tryGet`
+
+---
+
 ## Version 1.11.0 (2023/02/19)
 
 - Added `forStr.getAllFirstLevelParenthesis`
@@ -27,14 +33,14 @@
 ## Version 1.9.0 (Fri 23 Dec 2022)
 
 - Added cnpj testing and generation
- 
+
 ---
 
 ## Version 1.8.1 (Fri 23 Dec 2022)
 
 - Added `forRand.randSeq` test
 - Added tests for `forId` module
- 
+
 ---
 
 ## Version 1.8.0 (Fri 23 Dec 2022)
@@ -44,7 +50,7 @@
   - CPF generation
   - CPF verification
   - CPF parsing
-  
+
 ---
 
 ## Version 1.7.0 (Tue Nov 22, 2022)
