@@ -22,6 +22,14 @@ doAssert genClass({
 
 ## _forStr_ module
 
+### `const NonAlphanumeric*`
+
+A set with all non alphanumeric chars (no accents)
+
+### `const RunesWithAccent*`
+
+A set with all accent chars in Runes
+
 ### `func between(text, start, finish: string; default = ""; catchAll = false): string`
 
 Get the text between two strings
@@ -65,6 +73,8 @@ doAssert "Hello World! My name is John".stopAt('!') == "Hello World"
 
 Parse variables using custom config
 
+**Example**
+
 ```nim
 from std/sugar import `=>`
     from std/tables import toTable, `[]`
@@ -96,6 +106,8 @@ from std/sugar import `=>`
 
 Tries to parse int from string
 
+**Example**
+
 ```nim
 doAssert tryParseInt("10") == 10
 doAssert tryParseInt("test") == -1
@@ -105,6 +117,8 @@ doAssert tryParseInt("test", 12) == 12
 ### `func tryParseFloat*(value: string; default = -1.0): float {.inline.}`
 
 Tries to parse float from string
+
+**Example**
 
 ```nim
 doAssert tryParseFloat("10") == 10.0
@@ -117,6 +131,8 @@ doAssert tryParseFloat("test", 12) == 12.0
 
 Tries to parse bool from string
 
+**Example**
+
 ```nim
 doAssert tryParseBool("1", false) == true
 doAssert tryParseBool("0", true) == false
@@ -126,6 +142,8 @@ doAssert tryParseBool("test", true) == true
 ### `func parseValue*[T: BaseType](value: string; default: T): T {.inline.}`
 
 Tries to parse the string to the same type as `default`
+
+**Example**
 
 ```nim
 doAssert parseValue("10", 10) == 10
@@ -138,6 +156,8 @@ doAssert parseValue("test", false) == false
 ### `func tryParseEnum*[T: enum](value: string; default: T): T {.inline.}`
 
 Tries to parse float from string
+
+**Example**
 
 ```nim
 type MyEnum = enum
@@ -154,6 +174,8 @@ Removes all accents of string
 
 Based in WordPress implementation: https://github.com/WordPress/WordPress/blob/a2693fd8602e3263b5925b9d799ddd577202167d/wp-includes/formatting.php#L1528
 
+**Example**
+
 ```nim
 doAssert "ªºÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿØĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĲĳĴĵĶķĸĹĺĻļĽľĿŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŒœŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽžſȘșȚț€£ơƯưẦầẰằỀềỒồỜờỪừỲỳẢảẨẩẲẳẺẻỂểỈỉỎỏỔổỞởỦủỬửỶỷẪẫẴẵẼẽỄễỖỗỠỡỮữỸỹẤấẮắẾếỐốỚớỨứẠạẬậẶặẸẹỆệỊịỌọỘộỢợỤụỰựỴỵɑǕǖǗǘǍǎǏǐǑǒǓǔǙǚǛǜ".removeAccent ==
          "aoAAAAAAAECEEEEIIIIDNOOOOOUUUUYTHsaaaaaaaeceeeeiiiidnoooooouuuuythyOAaAaAaCcCcCcCcDdDdEeEeEeEeEeGgGgGgGgHhHhIiIiIiIiIiIJijJjKkkLlLlLlLlLlNnNnNnnNnOoOoOoOEoeRrRrRrSsSsSsSsTtTtTtUuUuUuUuUuUuWwYyYZzZzZzsSsTtEoUuAaAaEeOoOoUuYyAaAaAaEeEeIiOoOoOoUuUuYyAaAaEeEeOoOoUuYyAaAaEeOoOoUuAaAaAaEeEeIiOoOoOoUuUuYyaUuUuAaIiOoUuUuUu"
@@ -166,6 +188,8 @@ supports:
 
 - 00:00:00
 - 00:00
+
+**Example**
 
 ```nim
 doAssert "01:06:10".timestampToSec == 3970
@@ -180,6 +204,8 @@ converts to:
 - 00:00:00
 - 00:00
 
+**Example**
+
 ```nim
 doAssert 3970.secToTimestamp == "01:06:10"
 doAssert 182.secToTimestamp == "03:02"
@@ -190,11 +216,23 @@ doAssert 3600.secToTimestamp == "01:00:00"
 
 Returns the fist level parenthesis content of string
 
+**Example**
+
 ```nim
 doAssert "(a(b(c))) test (d(e(f))) test".getAllFirstLevelParenthesis == @[
   "a(b(c))",
   "d(e(f))"
 ]
+```
+
+### `func strip*(s: string; chars: seq[Rune]): string`
+
+strip Runes!
+
+**Example**
+
+```nim
+doAssert "ááźtest heállÊo".strip(RunesWithAccent) == "test hello"
 ```
 
 ## _forTerm_ module

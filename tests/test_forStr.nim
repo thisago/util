@@ -84,3 +84,5 @@ suite "For string":
       "a(b(c))",
       "d(e(f))"
     ]
+  test "strip":
+    check "ááźtest heállÊo".strip(RunesWithAccent) == "test hello"

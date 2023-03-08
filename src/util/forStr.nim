@@ -1,5 +1,5 @@
 ## Utilities `forStr`ing
-from std/strutils import find, join
+from std/strutils import find, join, AllChars, Digits, Letters
 from std/sugar import `->`
 
 func between*(text, start, finish: string; default = ""; catchAll = false): string =
@@ -421,3 +421,15 @@ func getAllFirstLevelParenthesis*(s: string): seq[string] =
         continue
     else: discard
     curr.add ch
+
+from std/unicode import toRunes, Rune, split
+
+func strip*(s: string; chars: seq[Rune]): string =
+  ## strip Runes!
+  runnableExamples:
+    doAssert "ááźtest heállÊo".strip(RunesWithAccent) == "test hello"
+  s.split(chars).join ""
+
+const
+  NonAlphanumeric* = AllChars - Digits - Letters
+  RunesWithAccent* = toRunes "ªºÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿØĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĲĳĴĵĶķĸĹĺĻļĽľĿŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŒœŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽžſȘșȚț€£ơƯưẦầẰằỀềỒồỜờỪừỲỳẢảẨẩẲẳẺẻỂểỈỉỎỏỔổỞởỦủỬửỶỷẪẫẴẵẼẽỄễỖỗỠỡỮữỸỹẤấẮắẾếỐốỚớỨứẠạẬậẶặẸẹỆệỊịỌọỘộỢợỤụỰựỴỵɑǕǖǗǘǍǎǏǐǑǒǓǔǙǚǛǜ"

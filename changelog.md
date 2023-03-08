@@ -1,6 +1,14 @@
 # Changelog
 
-## Version 1.12.0 (2023/03/3)
+## Version 1.13.0 (2023/03/08)
+
+- Added `forStr.NonAlphanumeric`
+- Added `forStr.RunesWithAccent`
+- Added `forStr.strip`
+
+---
+
+## Version 1.12.0 (2023/03/03)
 
 - Added `forOpt.tryGet`
 
