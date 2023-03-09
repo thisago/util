@@ -426,7 +426,7 @@ from std/unicode import Rune, toRunes, split
 
 
 
-func strip*(s: string; chars: seq[Rune]; ignore: seq[Rune] = @[]): string =
+func strip*(s: string; chars: openArray[Rune]; ignore: openArray[Rune] = @[]): string =
   ## Strip `chars` Runes ignoring `ignore` runes
   runnableExamples:
     doAssert "ááźtest heállÊo".strip(RunesWithAccent) == "test hello"
@@ -436,7 +436,7 @@ func strip*(s: string; chars: seq[Rune]; ignore: seq[Rune] = @[]): string =
       chs.add ch
   s.split(chs).join ""
 
-func strip*(s: string; chars: seq[Rune]; ignore: seq[char]): string =
+func strip*(s: string; chars: openArray[Rune]; ignore: openArray[char]): string =
   ## Strip `chars` Runes ignoring `ignore` chars
   var ignoring: seq[Rune]
   for ch in ignore:
