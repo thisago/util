@@ -233,15 +233,19 @@ doAssert "(a(b(c))) test (d(e(f))) test".getAllFirstLevelParenthesis == @[
 ]
 ```
 
-### `func strip*(s: string; chars: seq[Rune]): string`
+### `func strip*(s: string; chars: seq[Rune]; ignore: seq[Rune] = @[]): string`
 
-strip Runes!
+Strip `chars` Runes ignoring `ignore` runes
 
 **Example**
 
 ```nim
 doAssert "ááźtest heállÊo".strip(RunesWithAccent) == "test hello"
 ```
+
+### `func strip*(s: string; chars: seq[Rune]; ignore: seq[char]): string`
+
+Strip `chars` Runes ignoring `ignore` chars
 
 ## _forTerm_ module
 

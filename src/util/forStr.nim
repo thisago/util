@@ -424,11 +424,24 @@ func getAllFirstLevelParenthesis*(s: string): seq[string] =
 
 from std/unicode import Rune, toRunes, split
 
-func strip*(s: string; chars: seq[Rune]): string =
-  ## strip Runes!
+
+
+func strip*(s: string; chars: seq[Rune]; ignore: seq[Rune] = @[]): string =
+  ## Strip `chars` Runes ignoring `ignore` runes
   runnableExamples:
     doAssert "ááźtest heállÊo".strip(RunesWithAccent) == "test hello"
-  s.split(chars).join ""
+  var chs: seq[Rune]
+  for ch in chars:
+    if ch notin ignore:
+      chs.add ch
+  s.split(chs).join ""
+
+func strip*(s: string; chars: seq[Rune]; ignore: seq[char]): string =
+  ## Strip `chars` Runes ignoring `ignore` chars
+  var ignoring: seq[Rune]
+  for ch in ignore:
+    ignoring.add Rune ch
+  result = strip(s, chars, ignoring)
 
 const
   Alphanumeric* = Digits + Letters

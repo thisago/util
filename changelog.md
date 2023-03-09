@@ -1,5 +1,12 @@
 # Changelog
 
+## Version 1.14.1 (2023/03/09)
+
+- Added ignore Runes for `forStr.strip`
+- Added overload for ignore chars `forStr.strip`
+
+---
+
 ## Version 1.14.0 (2023/03/09)
 
 - Added `forStr.Alphanumeric`
