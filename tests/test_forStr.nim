@@ -86,3 +86,5 @@ suite "For string":
     ]
   test "strip":
     check "ááźtest heállÊo".strip(RunesWithAccent) == "test hello"
+    check "### `func almoçarComÁgua(comida, litros: string): string`".
+      strip(chars = NonExtendedAlphanumeric) == "funcalmoçarComÁguacomidalitrosstringstring"

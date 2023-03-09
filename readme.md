@@ -28,7 +28,15 @@ A set with all non alphanumeric chars (no accents)
 
 ### `const RunesWithAccent*`
 
-A set with all accent chars in Runes
+A seq with all accent chars in Runes
+
+### `const Alphanumeric*`
+
+A set with all alphanumeric chars
+
+### `const NonExtendedAlphanumeric*`
+
+A set with all non alphanumeric chars (and accents)
 
 ### `func between(text, start, finish: string; default = ""; catchAll = false): string`
 

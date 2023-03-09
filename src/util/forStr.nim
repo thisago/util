@@ -422,7 +422,7 @@ func getAllFirstLevelParenthesis*(s: string): seq[string] =
     else: discard
     curr.add ch
 
-from std/unicode import toRunes, Rune, split
+from std/unicode import Rune, toRunes, split
 
 func strip*(s: string; chars: seq[Rune]): string =
   ## strip Runes!
@@ -431,5 +431,16 @@ func strip*(s: string; chars: seq[Rune]): string =
   s.split(chars).join ""
 
 const
-  NonAlphanumeric* = AllChars - Digits - Letters
+  Alphanumeric* = Digits + Letters
+  NonAlphanumeric* = AllChars - Alphanumeric
   RunesWithAccent* = toRunes "ªºÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿØĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĲĳĴĵĶķĸĹĺĻļĽľĿŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŒœŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽžſȘșȚț€£ơƯưẦầẰằỀềỒồỜờỪừỲỳẢảẨẩẲẳẺẻỂểỈỉỎỏỔổỞởỦủỬửỶỷẪẫẴẵẼẽỄễỖỗỠỡỮữỸỹẤấẮắẾếỐốỚớỨứẠạẬậẶặẸẹỆệỊịỌọỘộỢợỤụỰựỴỵɑǕǖǗǘǍǎǏǐǑǒǓǔǙǚǛǜ"
+
+proc getNonExtendedAlphanumeric: seq[Rune] {.compileTime.} =
+  for i in 0..255:
+    let ch = i.char
+    if ch notin Alphanumeric:
+      let rune = Rune i
+      if rune notin RunesWithAccent:
+        result.add rune
+
+const NonExtendedAlphanumeric* = getNonExtendedAlphanumeric()

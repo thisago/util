@@ -1,5 +1,13 @@
 # Changelog
 
+## Version 1.14.0 (2023/03/09)
+
+- Added `forStr.Alphanumeric`
+- Added `forStr.NonExtendedAlphanumeric`
+- Added `forStr.strip` for rune strip
+
+---
+
 ## Version 1.13.0 (2023/03/08)
 
 - Added `forStr.NonAlphanumeric`
