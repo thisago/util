@@ -80,7 +80,7 @@ suite "For string":
     check secToTimestamp(182) == "03:02"
     check secToTimestamp(3600) == "01:00:00"
   test "getAllFirstLevelParenthesis":
-    check "(a(b(c))) test (d(e(f))) test".getAllFirstLevelParenthesis == @[
+    check "(a(b(c))) test (d(e(f))) test".getEnclosingText(['(', ')']) == @[
       "a(b(c))",
       "d(e(f))"
     ]

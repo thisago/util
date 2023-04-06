@@ -397,10 +397,10 @@ proc secToTimestamp*(seconds: int): string =
     result = fmt"{hrs:02}:"
   result.add fmt"{mins:02}:{secs:02}"
 
-func getAllFirstLevelParenthesis*(s: string): seq[string] =
-  ## Returns the fist level parenthesis content of string
+func getEnclosingText*(s: string; enclosedBy: array[2, char]): seq[string] =
+  ## Returns the first level enclosed content of a string
   runnableExamples:
-    doAssert "(a(b(c))) test (d(e(f))) test".getAllFirstLevelParenthesis == @[
+    doAssert "(a(b(c))) test (d(e(f))) test".getEnclosingText(['(', ')']) == @[
       "a(b(c))",
       "d(e(f))"
     ]
@@ -408,23 +408,20 @@ func getAllFirstLevelParenthesis*(s: string): seq[string] =
     curr = ""
     level = 0
   for ch in s:
-    case ch:
-    of '(', '[', '{':
+    if ch == enclosedBy[0]:
       inc level
       if level == 1:
         curr = ""
         continue
-    of ')', ']', '}':
+    elif ch == enclosedBy[1]:
       dec level
       if curr.len > 0 and level == 0:
         result.add curr
         continue
-    else: discard
     curr.add ch
 
+
 from std/unicode import Rune, toRunes, split
-
-
 
 func clean*(s: string; chars: openArray[Rune]; ignore: openArray[Rune] = @[]): string =
   ## Clean the `s` removing `chars` runes and ignoring `ignore` runes

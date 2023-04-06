@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 1.15.0 (2023/04/06)
+
+- Fixed `forStr.getAllFirstLevelParenthesis` to allow custom enclosing chars and
+  renamed it to `forStr.getEnclosingText`
+
 ## Version 1.14.1 (2023/03/09)
 
 - Added ignore Runes for `forStr.strip`
