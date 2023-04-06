@@ -84,8 +84,8 @@ suite "For string":
       "a(b(c))",
       "d(e(f))"
     ]
-  test "strip":
-    check "ááźtest heállÊo".strip(RunesWithAccent) == "test hello"
-    check "`func almoçarComÁgua(comida, litros: string): string`".
-      strip(chars = NonExtendedAlphanumeric, @[' ']) ==
-        "func almoçarComÁguacomida litros string string"
+  test "clean":
+    check "ááźtest heállÊo".clean(RunesWithAccent) == "test hello"
+    check "(almoçar) -[com] 2/ lit[r]os d(e ág)ua".
+      clean(chars = NonExtendedAlphanumeric, @[' ']) ==
+        "almoçar com 2 litros de água"

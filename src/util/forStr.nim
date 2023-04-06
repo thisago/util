@@ -426,22 +426,24 @@ from std/unicode import Rune, toRunes, split
 
 
 
-func strip*(s: string; chars: openArray[Rune]; ignore: openArray[Rune] = @[]): string =
-  ## Strip `chars` Runes ignoring `ignore` runes
+func clean*(s: string; chars: openArray[Rune]; ignore: openArray[Rune] = @[]): string =
+  ## Clean the `s` removing `chars` runes and ignoring `ignore` runes
   runnableExamples:
-    doAssert "ááźtest heállÊo".strip(RunesWithAccent) == "test hello"
+    doAssert "ááźtest heállÊo".clean(RunesWithAccent) == "test hello"
   var chs: seq[Rune]
   for ch in chars:
     if ch notin ignore:
       chs.add ch
   s.split(chs).join ""
 
-func strip*(s: string; chars: openArray[Rune]; ignore: openArray[char]): string =
-  ## Strip `chars` Runes ignoring `ignore` chars
+func clean*(s: string; chars: openArray[Rune]; ignore: openArray[char]): string =
+  ## Clean the `s` removing `chars` runes and ignoring `ignore` chars
+  runnableExamples:
+    doAssert "ááźtest heállÊo".clean(RunesWithAccent) == "test hello"
   var ignoring: seq[Rune]
   for ch in ignore:
     ignoring.add Rune ch
-  result = strip(s, chars, ignoring)
+  result = clean(s, chars, ignoring)
 
 const
   Alphanumeric* = Digits + Letters
