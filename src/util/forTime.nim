@@ -12,7 +12,7 @@ proc nowUnix*: int64 {.inline.} =
 proc toUnix*(date: DateTime): int64 {.inline.} =
   ## Returns the unix time of provided date
   runnableExamples:
-    from std/times import fromUnix
+    from std/times import fromUnix, toUnix
     doAssert fromUnix(1669113763).toUnix == 1669113763
   date.toTime.toUnix
 
@@ -21,7 +21,7 @@ proc setMidnight*(date: DateTime): DateTime =
   ## 
   ## Based in https://github.com/rubenwardy/renewedtab/blob/35d0afb8cdf5a3b701e60b137ff1db7110dcc385/src/app/utils/dates.tsx#L7
   runnableExamples:
-    from std/times import fromUnix, utc
+    from std/times import fromUnix, utc, toUnix
     doAssert fromUnix(946684999).utc.setMidnight.toUnix == 946684800
   result = date
   result.hour = 0
@@ -33,7 +33,7 @@ proc nextBirthday*(birth: DateTime; at = now()): DateTime =
   ## 
   ## Based in https://github.com/rubenwardy/renewedtab/blob/35d0afb8cdf5a3b701e60b137ff1db7110dcc385/src/app/utils/dates.tsx#L21
   runnableExamples:
-    from std/times import fromUnix, utc
+    from std/times import fromUnix, utc, toUnix
     doAssert fromUnix(946684800).utc.nextBirthday(fromUnix(1671494400).utc).toUnix == 1672531200
   result = birth
   result.year = at.year
@@ -46,7 +46,7 @@ proc lastBirthday*(birth: DateTime; at = now()): DateTime =
   ## 
   ## Based in https://github.com/rubenwardy/renewedtab/blob/35d0afb8cdf5a3b701e60b137ff1db7110dcc385/src/app/utils/dates.tsx#L21
   runnableExamples:
-    from std/times import fromUnix, utc
+    from std/times import fromUnix, utc, toUnix
     doAssert fromUnix(946684800).utc.lastBirthday(fromUnix(1671494400).utc).toUnix == 1640995200
   result = birth
   result.year = at.year
@@ -69,7 +69,7 @@ proc decimalYearsOld*(birth: DateTime; at = now()): float =
   ## Based in https://github.com/rubenwardy/renewedtab/blob/35d0afb8cdf5a3b701e60b137ff1db7110dcc385/src/app/utils/dates.tsx#L39
   runnableExamples:
     from std/times import fromUnix, utc
-    doAssert fromUnix(946684800).utc.decimalYearsOld(fromUnix(1671494400).utc) == 22.96712328767123
+    doAssert fromUnix(946684800).utc.decimalYearsOld(fromUnix(1671494400).utc) == 21.96712328767123
   result = float birth.yearsOld at
   let
     lastBirth = birth.lastBirthday.toUnix

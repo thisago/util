@@ -1,7 +1,12 @@
 # Changelog
 
-## Version 1.15.0 (2023/04/06)
+## Version 2.0.0 (2023/04/06)
 
+**There's breaking changes in this version!**
+
+- Renamed `forStr.getEnclosingText` to `forStr.getEnclosedText`
+- Added `forStr.getAllEnclosedText`
+- Fixed `runnableExamples`
 - Fixed `forStr.getAllFirstLevelParenthesis` to allow custom enclosing chars and
   renamed it to `forStr.getEnclosingText`
 

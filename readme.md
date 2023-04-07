@@ -220,17 +220,33 @@ doAssert 182.secToTimestamp == "03:02"
 doAssert 3600.secToTimestamp == "01:00:00"
 ```
 
-### `getAllFirstLevelParenthesis*(s: string): seq[string]`
+### `func getEnclosedText*(s: string; enclosedBy: array[2, char]; level = 0): EnclosedText`
 
-Returns the fist level parenthesis content of string
+Extracts all the first level enclosed text of a string; If not correctly
+enclosed, returns the error to true
 
 **Example**
 
 ```nim
-doAssert "(a(b(c))) test (d(e(f))) test".getAllFirstLevelParenthesis == @[
-  "a(b(c))",
-  "d(e(f))"
-]
+const
+  x = ['(', ')']
+  ok = "(a(b(c))) t (d(e(f))) a"
+doAssert ok.getEnclosedText(x).texts == @["a(b(c))", "d(e(f))"]
+doAssert ok.getEnclosedText(x, 2).texts == @["c", "f"]
+doAssert "(t".getEnclosedText(x).error == true
+```
+
+### `func getAllEnclosedText*(s: string; level = 0): seq[tuple[chars: string, data: EnclosedText]]`
+
+Extracts all enclosed text from string with following enclosing chars:
+'()', '[]', '{}', '""', '<>'
+
+**Example**
+
+```nim
+let enclosed = "(test) Hi [very] \"little\" 'fish' (Jeff) I'm <starting> my gym {tonight}".getAllEnclosedText
+doAssert enclosed[0].data.texts == @["test", "Jeff"]
+doAssert enclosed[3].data.texts == @["little"]
 ```
 
 ### `func clean*(s: string; chars: seq[Rune]; ignore: seq[Rune] = @[]): string`

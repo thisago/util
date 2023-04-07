@@ -79,11 +79,20 @@ suite "For string":
     check secToTimestamp(3970) == "01:06:10"
     check secToTimestamp(182) == "03:02"
     check secToTimestamp(3600) == "01:00:00"
-  test "getAllFirstLevelParenthesis":
-    check "(a(b(c))) test (d(e(f))) test".getEnclosingText(['(', ')']) == @[
-      "a(b(c))",
-      "d(e(f))"
-    ]
+  test "getEnclosedText":
+    const
+      x = ['(', ')']
+      ok = "(a(b(c))) t (d(e(f))) a"
+    check ok.getEnclosedText(x).texts == @["a(b(c))", "d(e(f))"]
+    check ok.getEnclosedText(x, 2).texts == @["c", "f"]
+    check "(t".getEnclosedText(x).error == true
+  test "getAllEnclosedText":
+    const
+      x = ['(', ')']
+      ok = "(a(b(c))) t (d(e(f))) a"
+    check ok.getEnclosedText(x).texts == @["a(b(c))", "d(e(f))"]
+    check ok.getEnclosedText(x, 2).texts == @["c", "f"]
+    check "(t".getEnclosedText(x).error == true
   test "clean":
     check "ááźtest heállÊo".clean(RunesWithAccent) == "test hello"
     check "(almoçar) -[com] 2/ lit[r]os d(e ág)ua".

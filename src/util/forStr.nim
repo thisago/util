@@ -255,7 +255,7 @@ func tryParseEnum*[T: enum](value: string; default = T(0)): T {.inline.} =
       first = "1st", second, third = "3th"
     doAssert tryParseEnum[MyEnum]("1_st") == first
     doAssert tryParseEnum[MyEnum]("second") == second
-    doAssert tryParseEnum[MyEnum]("third") == third
+    doAssert tryParseEnum[MyEnum]("3th") == third
     doAssert tryParseEnum[MyEnum]("4th", first) == first
   try:
     result = parseEnum[T](value)
@@ -374,9 +374,9 @@ proc secToTimestamp*(seconds: int): string =
   ## - 00:00:00
   ## - 00:00
   runnableExamples:
-    doAssert secToTimestamp 3970 == "01:06:10"
-    doAssert secToTimestamp 182 == "03:02"
-    doAssert secToTimestamp 3600 == "01:00:00"
+    doAssert secToTimestamp(3970) == "01:06:10"
+    doAssert secToTimestamp(182) == "03:02"
+    doAssert secToTimestamp(3600) == "01:00:00"
   result = ""
   var
     s = seconds
@@ -397,29 +397,68 @@ proc secToTimestamp*(seconds: int): string =
     result = fmt"{hrs:02}:"
   result.add fmt"{mins:02}:{secs:02}"
 
-func getEnclosingText*(s: string; enclosedBy: array[2, char]): seq[string] =
-  ## Returns the first level enclosed content of a string
+type EnclosedText* = tuple
+  texts: seq[string]
+  error: bool
+
+func getEnclosedText*(
+  s: string;
+  enclosedBy: array[2, char];
+  level = 0
+): EnclosedText =
+  ## Extracts all the first level enclosed text of a string; If not correctly
+  ## enclosed, returns the error to true
   runnableExamples:
-    doAssert "(a(b(c))) test (d(e(f))) test".getEnclosingText(['(', ')']) == @[
-      "a(b(c))",
-      "d(e(f))"
-    ]
+    const
+      x = ['(', ')']
+      ok = "(a(b(c))) t (d(e(f))) a"
+    doAssert ok.getEnclosedText(x).texts == @["a(b(c))", "d(e(f))"]
+    doAssert ok.getEnclosedText(x, 2).texts == @["c", "f"]
+    doAssert "(t".getEnclosedText(x).error == true
   var
     curr = ""
-    level = 0
-  for ch in s:
-    if ch == enclosedBy[0]:
-      inc level
-      if level == 1:
-        curr = ""
+    currLevel = 0
+  if enclosedBy[0] != enclosedBy[1]:
+    for ch in s:
+      if ch == enclosedBy[0]:
+        inc currLevel
+        if currLevel < level + 2:
+          curr = ""
+          continue
+      elif ch == enclosedBy[1]:
+        dec currLevel
+        if curr.len > 0 and currLevel == level:
+          result.texts.add curr
+          continue
+      curr.add ch
+  else:
+    for ch in s:
+      if ch == enclosedBy[0]:
+        currLevel = if currLevel == 1: 0 else: 1
+        if currLevel == 0:
+          result.texts.add curr
+          curr = ""
         continue
-    elif ch == enclosedBy[1]:
-      dec level
-      if curr.len > 0 and level == 0:
-        result.add curr
-        continue
-    curr.add ch
+      if currLevel > 0:
+        curr.add ch
+  result.error = currLevel != 0
 
+func getAllEnclosedText*(s: string; level = 0): seq[tuple[chars: string, data: EnclosedText]] =
+  ## Extracts all enclosed text from string with following enclosing chars:
+  ## '()', '[]', '{}', '""', '<>'
+  runnableExamples:
+    let enclosed = "(test) Hi [very] \"little\" 'fish' (Jeff) I'm <starting> my gym {tonight}".getAllEnclosedText
+    doAssert enclosed[0].data.texts == @["test", "Jeff"]
+    doAssert enclosed[3].data.texts == @["little"]
+  const enclosing = [
+    ['(', ')'],
+    ['[', ']'],
+    ['{', '}'],
+    ['"', '"'],
+    ['<', '>'],
+  ]
+  for x in enclosing:
+    result.add (x[0] & x[1], getEnclosedText(s, x, level))
 
 from std/unicode import Rune, toRunes, split
 
