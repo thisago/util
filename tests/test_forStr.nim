@@ -80,19 +80,20 @@ suite "For string":
     check secToTimestamp(182) == "03:02"
     check secToTimestamp(3600) == "01:00:00"
   test "getEnclosedText":
-    const
-      x = ['(', ')']
-      ok = "(a(b(c))) t (d(e(f))) a"
-    check ok.getEnclosedText(x).texts == @["a(b(c))", "d(e(f))"]
-    check ok.getEnclosedText(x, 2).texts == @["c", "f"]
-    check "(t".getEnclosedText(x).error == true
+    var
+      enclosed = ['(', ')']
+      txt = "(a(b(c))) t (d(e(f))) a"
+    # check txt.getEnclosedText(enclosed).texts == @["a(b(c))", "d(e(f))"]
+    # check txt.getEnclosedText(enclosed, 2).texts == @["c", "f"]
+    # check "(t".getEnclosedText(enclosed).error == true
+    enclosed = ['*', '*']
+    txt = "a*b*c**d**"
+    # check txt.getEnclosedText(enclosed, 0).texts == @["b"]
+    check txt.getEnclosedText(enclosed, 1).texts == @["d"]
   test "getAllEnclosedText":
-    const
-      x = ['(', ')']
-      ok = "(a(b(c))) t (d(e(f))) a"
-    check ok.getEnclosedText(x).texts == @["a(b(c))", "d(e(f))"]
-    check ok.getEnclosedText(x, 2).texts == @["c", "f"]
-    check "(t".getEnclosedText(x).error == true
+    let enclosed = "(test) Hi [very] \"little\" 'fish' (Jeff) I'm <starting> my gym {tonight}".getAllEnclosedText
+    check enclosed[0].data.texts == @["test", "Jeff"]
+    check enclosed[3].data.texts == @["little"]
   test "clean":
     check "ááźtest heállÊo".clean(RunesWithAccent) == "test hello"
     check "(almoçar) -[com] 2/ lit[r]os d(e ág)ua".

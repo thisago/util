@@ -434,13 +434,19 @@ func getEnclosedText*(
   else:
     for ch in s:
       if ch == enclosedBy[0]:
-        currLevel = if currLevel == 1: 0 else: 1
-        if currLevel == 0:
+        if currLevel < level + 1:
+          inc currLevel
+        else:
+          dec currLevel
+        if curr.len > 0 and currLevel == level:
           result.texts.add curr
           curr = ""
         continue
-      if currLevel > 0:
-        curr.add ch
+      else:
+        if currLevel < level + 1:
+          currLevel = 0
+        if currLevel == level + 1:
+          curr.add ch
   result.error = currLevel != 0
 
 func getAllEnclosedText*(s: string; level = 0): seq[tuple[chars: string, data: EnclosedText]] =

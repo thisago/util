@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 2.1.0 (2023/06/14)
+
+- Fixed `forStr.getAllEnclosedText` tests
+- Fixed `forStr.getEnclosedText` to allow get multilevel single enclosing
+
 ## Version 2.0.0 (2023/04/06)
 
 **There's breaking changes in this version!**
