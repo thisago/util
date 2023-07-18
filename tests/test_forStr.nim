@@ -83,13 +83,13 @@ suite "For string":
     var
       enclosed = ['(', ')']
       txt = "(a(b(c))) t (d(e(f))) a"
-    # check txt.getEnclosedText(enclosed).texts == @["a(b(c))", "d(e(f))"]
-    # check txt.getEnclosedText(enclosed, 2).texts == @["c", "f"]
-    # check "(t".getEnclosedText(enclosed).error == true
+    check txt.getEnclosedText(enclosed).texts == @["a(b(c))", "d(e(f))"]
+    check txt.getEnclosedText(enclosed, 2).texts == @["c", "f"]
+    check "(t".getEnclosedText(enclosed).error == true
     enclosed = ['*', '*']
-    txt = "a*b*c**d**"
-    # check txt.getEnclosedText(enclosed, 0).texts == @["b"]
-    check txt.getEnclosedText(enclosed, 1).texts == @["d"]
+    txt = "a*b*c**d****e**f*g*"
+    check txt.getEnclosedText(enclosed, 0).texts == @["b", "g"]
+    check txt.getEnclosedText(enclosed, 1).texts == @["d", "e"]
   test "getAllEnclosedText":
     let enclosed = "(test) Hi [very] \"little\" 'fish' (Jeff) I'm <starting> my gym {tonight}".getAllEnclosedText
     check enclosed[0].data.texts == @["test", "Jeff"]

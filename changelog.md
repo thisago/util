@@ -1,9 +1,14 @@
 # Changelog
 
-## Version 2.1.0 (2023/06/14)
+## Version 3.0.0 (2023/07/18)
+
+- Removed `forId` submodule (moved to `docid` package)
+  
+## Version 2.1.0 (2023/06/14 - 2023/06/15)
 
 - Fixed `forStr.getAllEnclosedText` tests
 - Fixed `forStr.getEnclosedText` to allow get multilevel single enclosing
+- Fixed examples and runnableExamples of `forStr.getEnclosedText`
 
 ## Version 2.0.0 (2023/04/06)
 

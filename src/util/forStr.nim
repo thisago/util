@@ -409,12 +409,16 @@ func getEnclosedText*(
   ## Extracts all the first level enclosed text of a string; If not correctly
   ## enclosed, returns the error to true
   runnableExamples:
-    const
-      x = ['(', ')']
-      ok = "(a(b(c))) t (d(e(f))) a"
-    doAssert ok.getEnclosedText(x).texts == @["a(b(c))", "d(e(f))"]
-    doAssert ok.getEnclosedText(x, 2).texts == @["c", "f"]
-    doAssert "(t".getEnclosedText(x).error == true
+    var
+      enclosed = ['(', ')']
+      txt = "(a(b(c))) t (d(e(f))) a"
+    doAssert txt.getEnclosedText(enclosed).texts == @["a(b(c))", "d(e(f))"]
+    doAssert txt.getEnclosedText(enclosed, 2).texts == @["c", "f"]
+    doAssert "(t".getEnclosedText(enclosed).error == true
+    enclosed = ['*', '*']
+    txt = "a*b*c**d****e**f*g*"
+    doAssert txt.getEnclosedText(enclosed, 0).texts == @["b", "g"]
+    doAssert txt.getEnclosedText(enclosed, 1).texts == @["d", "e"]
   var
     curr = ""
     currLevel = 0
@@ -432,13 +436,17 @@ func getEnclosedText*(
           continue
       curr.add ch
   else:
+    var opened = false
     for ch in s:
       if ch == enclosedBy[0]:
-        if currLevel < level + 1:
+        if currLevel == 0:
+          opened = false
+        if currLevel < level + 1 and not opened:
           inc currLevel
         else:
           dec currLevel
         if curr.len > 0 and currLevel == level:
+          opened = true
           result.texts.add curr
           curr = ""
         continue
