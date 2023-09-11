@@ -1,13 +1,13 @@
 import util/[
-  forFs,
-  forHtml,
-  forId,
-  forOs,
-  forRand,
-  forSeq,
-  forStr,
+  forTime,
   forTerm,
-  forTime
+  forStr,
+  forSeq,
+  forRand,
+  forOs,
+  forOpt,
+  forHtml,
+  forFs
 ]
 
-export forFs, forHtml, forId, forOs, forRand, forSeq, forStr, forTerm, forTime
+export forTime, forTerm, forStr, forSeq, forRand, forOs, forOpt, forHtml, forFs
