@@ -11,7 +11,7 @@ proc getEnv*(key: string; default = ""; encoding = "CP1252"): string =
     doAssert getEnv("name") == "Joe"
   result = os.getEnv(key, default)
   when defined windows:
-    result = result.convert("UTF-8", encoding) 
+    result = result.convert("UTF-8", encoding)
 
 when isMainModule:
   from std/os import putEnv

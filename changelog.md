@@ -1,9 +1,13 @@
 # Changelog
 
+## Version 3.0.1 (2023/09/11)
+
+- Stricter `forStr.escapeFs`
+
 ## Version 3.0.0 (2023/07/18)
 
 - Removed `forId` submodule (moved to `docid` package)
-  
+
 ## Version 2.1.0 (2023/06/14 - 2023/06/15)
 
 - Fixed `forStr.getAllEnclosedText` tests
