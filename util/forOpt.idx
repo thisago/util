@@ -1,0 +1,2 @@
+nimTitle	forOpt	util/forOpt.html	module util/forOpt		0
+nim	tryGet	util/forOpt.html#tryGet,Option[T],T	proc tryGet[T](o: Option[T]; default: T): T		4

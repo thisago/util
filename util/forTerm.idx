@@ -1,0 +1,2 @@
+nimTitle	forTerm	util/forTerm.html	module util/forTerm		0
+nim	echoSingleLine	util/forTerm.html#echoSingleLine,varargs[string,]	proc echoSingleLine(xs: varargs[string, `$`])		6

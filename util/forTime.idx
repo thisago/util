@@ -1,0 +1,8 @@
+nimTitle	forTime	util/forTime.html	module util/forTime		0
+nim	nowUnix	util/forTime.html#nowUnix	proc nowUnix(): int64		6
+nim	toUnix	util/forTime.html#toUnix,DateTime	proc toUnix(date: DateTime): int64		12
+nim	setMidnight	util/forTime.html#setMidnight,DateTime	proc setMidnight(date: DateTime): DateTime		19
+nim	nextBirthday	util/forTime.html#nextBirthday,DateTime	proc nextBirthday(birth: DateTime; at = now()): DateTime		31
+nim	lastBirthday	util/forTime.html#lastBirthday,DateTime	proc lastBirthday(birth: DateTime; at = now()): DateTime		44
+nim	yearsOld	util/forTime.html#yearsOld,DateTime	proc yearsOld(birth: DateTime; at = now()): int		57
+nim	decimalYearsOld	util/forTime.html#decimalYearsOld,DateTime	proc decimalYearsOld(birth: DateTime; at = now()): float		66

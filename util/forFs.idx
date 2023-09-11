@@ -1,0 +1,2 @@
+nimTitle	forFs	util/forFs.html	module util/forFs		0
+nim	escapeFs	util/forFs.html#escapeFs,string,string,string	proc escapeFs(str: string;\n         allowedChars = {'0'..'9', 'A'..'Z', 'a'..'z'} + {'-', '_', '.'};\n         toReplace = "-"; whitespace = ""): string		5

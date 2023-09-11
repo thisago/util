@@ -1,0 +1,2 @@
+nimTitle	forHtml	util/forHtml.html	module util/forHtml		0
+nim	genClass	util/forHtml.html#genClass,openArray[]	proc genClass(classes: openArray[(string, bool)]): string		4

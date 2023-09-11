@@ -1,0 +1,4 @@
+nimTitle	forSeq	util/forSeq.html	module util/forSeq		0
+nim	occurrences	util/forSeq.html#occurrences,openArray[T]	proc occurrences[T](xs: openArray[T]): Table[T, int]		4
+nim	occurrence	util/forSeq.html#occurrence,openArray[T],T	proc occurrence[T](xs: openArray[T]; val: T): int		18
+nim	mostCommon	util/forSeq.html#mostCommon,openArray[T]	proc mostCommon[T](xs: openArray[T]): seq[T]		29

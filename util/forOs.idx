@@ -1,0 +1,2 @@
+nimTitle	forOs	util/forOs.html	module util/forOs		0
+nim	getEnv	util/forOs.html#getEnv,string,string,string	proc getEnv(key: string; default = ""; encoding = "CP1252"): string		6

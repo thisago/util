@@ -1,0 +1,3 @@
+nimTitle	forRand	util/forRand.html	module util/forRand		0
+nim	randStr	util/forRand.html#randStr,int	proc randStr(len: int; chars = {'0'..'9'} + {'A'..'Z', 'a'..'z'}): string		6
+nim	randSeq	util/forRand.html#randSeq,int,int,int	proc randSeq(len, max: int; min = 0): seq[int]		17
