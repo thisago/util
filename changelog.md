@@ -1,5 +1,12 @@
 # Changelog
 
+## Version 3.1.0 (2023/09/15)
+
+- Added `forStr.after` and `forStr.before`
+- Removed `forStr.stopAt`
+- Added more tests and fixed tests for `forStr.between`
+- Reimplemented `forStr.between` using `forStr.after` and `forStr.before`
+
 ## Version 3.0.1 (2023/09/11)
 
 - Stricter `forStr.escapeFs`

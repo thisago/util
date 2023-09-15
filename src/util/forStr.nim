@@ -2,30 +2,49 @@
 from std/strutils import find, join, AllChars, Digits, Letters
 from std/sugar import `->`
 
+func before*(s, stop: string or char; catchAll = false): string =
+  ## Returns all text until reach to `stop`
+  runnableExamples:
+    doAssert "Hello World! My name is John".before('!') == "Hello World"
+  var i = s.find stop
+  if catchAll:
+    when stop is char:
+      inc i
+    else:
+      i += stop.len
+  if i == -1:
+    raise newException(ValueError, "Cannot get text before '" & stop & "' in '" & s & "'")
+  else:
+    result = s[0..<i]
+
+func after*(s, start: string or char; catchAll = false): string =
+  ## Returns all text starting from `start`
+  runnableExamples:
+    doAssert "Hello World! My name is John".after"! " == "My name is John"
+  var i = s.find start
+  if not catchAll:
+    when start is char:
+      inc i
+    else:
+      i += start.len
+  if i == -1:
+    raise newException(ValueError, "Cannot get text after '" & start & "' in '" & s & "'")
+  else:
+    result = s[i..^1]
+
+
 func between*(text, start, finish: string; default = ""; catchAll = false): string =
   ## Get the text between two strings
-  ## 
+  ##
   ## If `catchAll` is false, just the middle text will be returned, the searched text will be removed
   runnableExamples:
     const phrase = "The dog is lazy"
     doAssert phrase.between("dog", "lazy") == " is "
     doAssert phrase.between("dog", "lazy", catchAll = true) == "dog is lazy"
-  result = default
-  var startIndex = text.find start
-  if startIndex >= 0:
-    if not catchAll:
-      startIndex += start.len
-    var
-      res = text[startIndex..^1]
-      finishIndex = res.find finish
-    if finishIndex >= 0:
-      dec finishIndex
-      if catchAll:
-        finishIndex += finish.len
-      try:
-        result = res[0..finishIndex]
-      except ValueError:
-        discard
+  try:
+    result = text.after(start, catchAll).before(finish, catchAll)
+  except ValueError:
+    result = default
 
 func setBetween*(text, start, finish, inside: string; default = text; replaceAll = false): string =
   ## Set the text between two strings
@@ -54,17 +73,6 @@ func setBetween*(text, start, finish, inside: string; default = text; replaceAll
         result[startIndex..startIndex + finishIndex] = inside
       except ValueError:
         result = default
-
-func stopAt*(s, stop: string or char): string =
-  ## Removes all text after `stop` (and the `stop` text too)
-  runnableExamples:
-    doAssert "Hello World! My name is John".
-                stopAt('!') == "Hello World"
-  result = s
-  let stop = s.find stop
-  if stop >= 0:
-    result = s[0..<stop]
-
 
 #region var parser (maybe move to another lib)
 

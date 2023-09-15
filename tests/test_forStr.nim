@@ -5,19 +5,26 @@ from std/tables import toTable, `[]`
 import util/forStr
 
 suite "For string":
+  test "before":
+    const phrase = "Hello World! My name is John"
+    check phrase.before('!') == "Hello World"
+    check phrase.before('!', catchAll = true) == "Hello World!"
+  test "after":
+    const phrase = "Hello World! My name is John"
+    check phrase.after"! " == "My name is John"
+    check phrase.after("! ", catchAll = true) == "! My name is John"
+
   test "between":
     const phrase = "The dog is lazy"
     check phrase.between("dog", "lazy") == " is "
     check phrase.between("dog", "lazy", catchAll = true) == "dog is lazy"
-  
+    check phrase.between("test", "wrong", default = "none") == "none"
+
   test "setBetween":
     const phrase = "I want to eat a large pineapple"
     check phrase.setBetween("a ", " pine", "small") == "I want to eat a small pineapple"
     check phrase.setBetween("a ", " pine", "small ", replaceAll = true) == "I want to eat small apple"
-    
-  test "stopAt":
-    check "Hello World! My name is John".stopAt('!') == "Hello World"
-    
+
   test "parseStr":
     let
       text = "My name is {name} and I am {age} old; My friend (name) is (age) old.\l" &
