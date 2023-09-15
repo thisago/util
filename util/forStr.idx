@@ -1,26 +1,27 @@
 nimTitle	forStr	util/forStr.html	module util/forStr		0
-nim	between	util/forStr.html#between,string,string,string,string	proc between(text, start, finish: string; default = ""; catchAll = false): string		5
-nim	setBetween	util/forStr.html#setBetween,string,string,string,string	proc setBetween(text, start, finish, inside: string; default = text;\n           replaceAll = false): string		30
-nim	stopAt	util/forStr.html#stopAt,,	proc stopAt(s, stop: string or char): string		58
-nim	VarParser	util/forStr.html#VarParser	object VarParser		72
-nim	initVarParser	util/forStr.html#initVarParser,,	proc initVarParser(enclosing: VarParser.enclosing; fn: VarParser.fn;\n              sameEnclosing = false): VarParser		77
-nim	parseStr	util/forStr.html#parseStr,string,varargs[VarParser]	proc parseStr(text: string; parsers: varargs[VarParser]): string		93
-nim	BaseType	util/forStr.html#BaseType	type BaseType		190
-nim	tryParseInt	util/forStr.html#tryParseInt,string,int	proc tryParseInt(value: string; default = -1): int		192
-nim	tryParseFloat	util/forStr.html#tryParseFloat,string,float	proc tryParseFloat(value: string; default = -1.0): float		203
-nim	tryParseBool	util/forStr.html#tryParseBool,string	proc tryParseBool(value: string; default = false): bool		215
-nim	parseValue	util/forStr.html#parseValue,string,T	proc parseValue[T: BaseType](value: string; default: T): T		227
-nim	tryParseEnum	util/forStr.html#tryParseEnum,string,typeof(T(0))	proc tryParseEnum[T: enum](value: string; default = T(0)): T		251
-nim	removeAccent	util/forStr.html#removeAccent,string	proc removeAccent(str: string): string		267
-nim	timestampToSec	util/forStr.html#timestampToSec,string	proc timestampToSec(timestamp: string): int		351
-nim	secToTimestamp	util/forStr.html#secToTimestamp,int	proc secToTimestamp(seconds: int): string		371
-nim	EnclosedText	util/forStr.html#EnclosedText	tuple EnclosedText		400
-nim	getEnclosedText	util/forStr.html#getEnclosedText,string,array[,char],int	proc getEnclosedText(s: string; enclosedBy: array[2, char]; level = 0): EnclosedText		404
-nim	getAllEnclosedText	util/forStr.html#getAllEnclosedText,string,int	proc getAllEnclosedText(s: string; level = 0): seq[\n    tuple[chars: string, data: EnclosedText]]		460
-nim	clean	util/forStr.html#clean,string,openArray[Rune],openArray[Rune]	proc clean(s: string; chars: openArray[Rune]; ignore: openArray[Rune] = @[]): string		479
-nim	clean	util/forStr.html#clean,string,openArray[Rune],openArray[char]	proc clean(s: string; chars: openArray[Rune]; ignore: openArray[char]): string		489
-nim	Alphanumeric	util/forStr.html#Alphanumeric	const Alphanumeric		499
-nim	NonAlphanumeric	util/forStr.html#NonAlphanumeric	const NonAlphanumeric		500
-nim	RunesWithAccent	util/forStr.html#RunesWithAccent	const RunesWithAccent		501
-nim	NonExtendedAlphanumeric	util/forStr.html#NonExtendedAlphanumeric	const NonExtendedAlphanumeric		511
-nimgrp	clean	util/forStr.html#clean-procs-all	proc		479
+nim	before	util/forStr.html#before,,	proc before(s, stop: string or char; catchAll = false): string		5
+nim	after	util/forStr.html#after,,	proc after(s, start: string or char; catchAll = false): string		20
+nim	between	util/forStr.html#between,string,string,string,string	proc between(text, start, finish: string; default = ""; catchAll = false): string		36
+nim	setBetween	util/forStr.html#setBetween,string,string,string,string	proc setBetween(text, start, finish, inside: string; default = text;\n           replaceAll = false): string		49
+nim	VarParser	util/forStr.html#VarParser	object VarParser		80
+nim	initVarParser	util/forStr.html#initVarParser,,	proc initVarParser(enclosing: VarParser.enclosing; fn: VarParser.fn;\n              sameEnclosing = false): VarParser		85
+nim	parseStr	util/forStr.html#parseStr,string,varargs[VarParser]	proc parseStr(text: string; parsers: varargs[VarParser]): string		101
+nim	BaseType	util/forStr.html#BaseType	type BaseType		198
+nim	tryParseInt	util/forStr.html#tryParseInt,string,int	proc tryParseInt(value: string; default = -1): int		200
+nim	tryParseFloat	util/forStr.html#tryParseFloat,string,float	proc tryParseFloat(value: string; default = -1.0): float		211
+nim	tryParseBool	util/forStr.html#tryParseBool,string	proc tryParseBool(value: string; default = false): bool		223
+nim	parseValue	util/forStr.html#parseValue,string,T	proc parseValue[T: BaseType](value: string; default: T): T		235
+nim	tryParseEnum	util/forStr.html#tryParseEnum,string,typeof(T(0))	proc tryParseEnum[T: enum](value: string; default = T(0)): T		259
+nim	removeAccent	util/forStr.html#removeAccent,string	proc removeAccent(str: string): string		275
+nim	timestampToSec	util/forStr.html#timestampToSec,string	proc timestampToSec(timestamp: string): int		359
+nim	secToTimestamp	util/forStr.html#secToTimestamp,int	proc secToTimestamp(seconds: int): string		379
+nim	EnclosedText	util/forStr.html#EnclosedText	tuple EnclosedText		408
+nim	getEnclosedText	util/forStr.html#getEnclosedText,string,array[,char],int	proc getEnclosedText(s: string; enclosedBy: array[2, char]; level = 0): EnclosedText		412
+nim	getAllEnclosedText	util/forStr.html#getAllEnclosedText,string,int	proc getAllEnclosedText(s: string; level = 0): seq[\n    tuple[chars: string, data: EnclosedText]]		468
+nim	clean	util/forStr.html#clean,string,openArray[Rune],openArray[Rune]	proc clean(s: string; chars: openArray[Rune]; ignore: openArray[Rune] = @[]): string		487
+nim	clean	util/forStr.html#clean,string,openArray[Rune],openArray[char]	proc clean(s: string; chars: openArray[Rune]; ignore: openArray[char]): string		497
+nim	Alphanumeric	util/forStr.html#Alphanumeric	const Alphanumeric		507
+nim	NonAlphanumeric	util/forStr.html#NonAlphanumeric	const NonAlphanumeric		508
+nim	RunesWithAccent	util/forStr.html#RunesWithAccent	const RunesWithAccent		509
+nim	NonExtendedAlphanumeric	util/forStr.html#NonExtendedAlphanumeric	const NonExtendedAlphanumeric		519
+nimgrp	clean	util/forStr.html#clean-procs-all	proc		487
